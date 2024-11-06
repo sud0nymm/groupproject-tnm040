@@ -9,7 +9,7 @@ import './componentStyles.css'
 function TakeOrder(){
 
     return (
-        <div> <p> Free Play Page</p> </div>
+        <div> <p> Take Order Page</p> </div>
     )
 }
 

@@ -7,9 +7,31 @@ import './componentStyles.css'
 
 
 function FreePlay(){
+    
+    const handleImageLoad = () => {
+        console.log(`Image loaded successfully: ${image}`);
+    };
+    
+    const handleImageError = () => {
+        console.error(`Failed to load image: ${image}`);
+    }; 
 
-    return (
+    const image = "/Beacon_JE6_BE2.png";
+
+    return(
+
+    <div>
         <div> <p> Free Play Page</p> </div>
+
+        <img  /* image example, see image variable */ 
+            src={image}
+            alt="hello"
+            onLoad={handleImageLoad}  
+            onError={handleImageError} 
+        />
+
+    </div>     
+
     )
 }
 
