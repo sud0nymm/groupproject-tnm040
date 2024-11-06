@@ -1,42 +1,60 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/*Play button*/
+.button-play{
+  display:block;
+  position:relative;
+  border:8px solid rgb(223, 161, 211);
+  box-shadow:0 4px 6px -3px rgba(black, .3), inset 0 3px 4px -2px rgba(black, .25);
+  position:relative;
+  width:112px;
+  height:112px;
+  background:rgb(223, 161, 211);
+  background-image: linear-gradient(120deg, rgba(lighten(rgb(223, 161, 211), 15%), .3) 50%, grey 51%);
+  border-radius:50%; 
+  transition: all .2s cubic-bezier(0.68, -0.55, 0.465, 1.55) .2s, border-width .4s cubic-bezier(0.68, -0.55, 0.465, 1.55);
+  
+  &:before{
+    display:block;
+    position:absolute;
+    content:"";
+    bottom:50%;
+    left:50%;
+    width:0;
+    height:0;
+    border:30px solid transparent;
+    border-width:25px 0px 25px 40px;
+    border-radius:0;
+    border-left-color:white;
+    transform:translate(-13px, 50%);
+    
   }
-  to {
-    transform: rotate(360deg);
+  
+  &:hover, &.active{    
+    border: 4px solid white;
+    .circle{
+      stroke-dasharray:-1000px;
+      stroke-dashoffset:-500px;
+      opacity:0;
+      transition: all 2s linear .3s, opacity .1s linear 2s;
+    }
+    
+    &:before{
+      animation:playJump .5s linear infinite;
+    }
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+@keyframes playJump{
+  
+  0%   { transform:translate(-13px, 60%) scale(1.1,0.7) ; }
+  10%   { transform:translate(-13px, 30%) scale(0.9,1.2); }
+	20%  { transform:translate(-13px, 15%); }
+	40%  { transform:translate(-13px, 10%); }
+	50%  {transform:translate(-13px, 10%); }
+	55%  { transform:translate(-13px, 18%); }
+	60%  { transform:translate(-13px, 20%); }
+	65%  { transform:translate(-13px, 25%); }
+	70%  { transform:translate(-13px, 30%);}
+	90%  { transform:translate(-13px, 60%) scale(1.2,0.7); }
+	100% { transform:translate(-13px, 60%) scale(1.4,0.7);}
 }
