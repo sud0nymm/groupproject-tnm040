@@ -41,6 +41,12 @@ function StartPage(){
     <br/>
     <Link to="/takeorder">Take Play</Link>
 
+    <>
+    <div className="mugg">
+    <button className="button-play"></button>
+    </div>
+    </>
+
     </div>
     
 
