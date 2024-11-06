@@ -10,10 +10,9 @@ import { DraggableCore } from 'react-draggable'; // <DraggableCore>
 function App() {
   return (
     <>
-      <div className= "button-play">
-
-      </div>
-      <p>  </p>
+    <div className="mugg">
+    <button className="button-play"></button>
+    </div>
     </>
 
   );
