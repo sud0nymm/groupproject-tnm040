@@ -1,0 +1,14 @@
+.testbox {
+    width: 200px;
+    height: 200px;
+    background-color: #61dafb;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: move;
+    text-align: center;
+  }
+
+  
