@@ -37,19 +37,18 @@ function StartPage(){
 
   return (
     <div>   
-    <Link to="/freeplay">Free Play</Link> { /*make pretty pretty please*/ }
-    <br/>
-    <Link to="/takeorder">Take Play</Link>
+      <div className='container'>
+        <div className='sliding-background'/>
+      </div>
+      
+      <Link to="/freeplay">Free Play</Link> { /*make pretty pretty please*/ }
+      <br/>
+      <Link to="/takeorder">Take Play</Link>
 
-    <>
-    <div className="mugg">
-    <button className="button-play"></button>
+      <div className="mugg">
+      <button className="button-play"></button>
+      </div>
     </div>
-    </>
-
-    </div>
-    
-
   )
 
 }

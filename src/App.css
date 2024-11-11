@@ -1,7 +1,7 @@
 
 /*Play button*/
 .mugg{
-  background-image: url('../public/Mugg.png') ;
+  background-image: url('../Mugg.png') ;
   background-size: 150px;
   height: 280px;
   width: 150px
@@ -51,6 +51,24 @@
       animation:playJump .5s linear infinite;
     }
   }
+}
+
+.container {
+  width: 393px;
+  height: 852px;
+overflow: hidden;
+}
+.sliding-background {
+  background: url("../sliding_background.svg") repeat;
+  height: 2130px; /*142*5 710*/
+  width: 1275px; /*425*/
+  animation: slide 30s linear infinite;
+}
+
+@keyframes slide {
+  0%{ transform: translate3d(0, -852px, 0);}
+
+  100%{ transform: translate3d(-425px, 0, 0);}
 }
 
 @keyframes playJump{
