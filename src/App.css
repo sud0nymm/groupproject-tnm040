@@ -1,8 +1,4 @@
 
-
-
-
-
 /*Textbox*/
 .box {
   width: 200px;
@@ -81,6 +77,8 @@
   }
 }
 
+
+/* Sliding background */
 .container {
   width: 100vw;
   height: 100vh;
