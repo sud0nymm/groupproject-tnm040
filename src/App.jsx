@@ -38,7 +38,8 @@ function StartPage(){
   return (
     <div>   
       <div className='container'>
-        <div className='sliding-background'/>
+        <div className='sliding-background'> 
+        </div>
       </div>
       
       <Link to="/freeplay">Free Play</Link> { /*make pretty pretty please*/ }
