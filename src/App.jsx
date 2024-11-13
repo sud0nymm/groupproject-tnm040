@@ -38,7 +38,7 @@ function StartPage() {
   return (
     <>
       <div className='sliding-background'>
-        <Link to="/takeorder">Test</Link>
+        <Link to="/takeorder"> <button className='button'></button></Link>
       </div>
     </>
   )

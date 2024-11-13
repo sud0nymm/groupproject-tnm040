@@ -16,3 +16,9 @@
   100%{ background-position: -425px, 0;}
 }
 
+.button{
+  background: url("../bear_play.svg") no-repeat;
+  height: 307px;
+  width: 237px;
+  
+}
