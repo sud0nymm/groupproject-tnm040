@@ -36,21 +36,12 @@ function App() {
 function StartPage() {
 
   return (
-    <div>   
-      <div className='container'>
-        <div className='sliding-background'> 
-        <div><p>Test</p></div>
-      <Link to="/takeorder" className="button-play"></Link>
-        </div>
-        
-      </div> 
-      
-    </div>);
-  //     <Link to="/takeorder" className="button-play"></Link>
-      
-
-  // )
-
+    <>
+      <div className='sliding-background'>
+        <Link to="/takeorder">Test</Link>
+      </div>
+    </>
+  )
 }
 
 

@@ -9,7 +9,10 @@ import './componentStyles.css'
 function TakeOrder(){
 
     return (
-        <div> <p> Take Order Page</p> </div>
+        <div className='takeOrder'>
+          
+          
+        </div>
     )
 }
 

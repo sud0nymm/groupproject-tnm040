@@ -1,101 +1,19 @@
-
-/*Textbox*/
-.box {
-  width: 200px;
-  height: 75px;
-  background-color: rgba(247, 203, 219);
-  opacity: 0.5;
-  position:absolute;
-  top: 54%; /* Justerar positionen vertikalt */
-  display: flex; /* Enables flexbox */
-  left: 55%; /* Justerar positionen horisontellt */
-  align-items: center;
-  justify-content: center; 
-  text-decoration: none; /* Removes underline */
-  color: rgb(254, 85, 146); 
-  font-size: 32px; 
-  font-weight: bold; 
-}
-
-/*Play button*/
-
-.button-play{
-  transform: translate(200px, 100px); 
-  position: absolute;
-  display:block;
-  top: 72%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-
-
-  position:relative;
-  border:8px solid rgb(247, 203, 219);
-  box-shadow:0 4px 6px -3px rgba(black, .3), inset 0 3px 4px -2px rgba(black, .25);
-  position:relative;
-  width:55px;
-  height:70px;
-  background:rgb(251, 153, 184);
-  background-image: linear-gradient(120deg, rgba(lighten(rgb(223, 161, 211), 15%), .3) 50%, grey 51%);
-  border-radius:50%; 
-  transition: all .2s cubic-bezier(0.68, -0.55, 0.465, 1.55) .2s, border-width .4s cubic-bezier(0.68, -0.55, 0.465, 1.55);
-  
-
-
-  &:before{
-    display:block;
-    position:absolute;
-    content:"";
-    bottom:50%;
-    left:50%;
-    width:0;
-    height:0;
-    border:30px solid transparent;
-    border-width:25px 0px 25px 40px;
-    border-radius:0;
-    border-left-color:white;
-    transform:translate(-13px, 50%);
-    
-  }
-  
-  &:hover, &.active{    
-    border: 4px solid white;
-    .circle{
-      stroke-dasharray:-1000px;
-      stroke-dashoffset:-500px;
-      opacity:0;
-      transition: all 2s linear .3s, opacity .1s linear 2s;
-    }
-    
-    &:before{
-      animation:playJump .5s linear infinite;
-    }
-  }
-}
-
-
-/* Sliding background */
-.container {
+.sliding-background {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-}
-.sliding-background {
+
   background: url("../sliding_background.svg") repeat;
-  height: 2130px; /* 142*5 710*/
-  width: 1275px; /*425 elr 568  1275 elr 1704  */
+
+
   animation: slide 30s linear infinite;
   z-index: -10;
 }
 
 @keyframes slide {
-  0%{ transform: translate3d(0, -852px, 0);}
+  0%{ background-position: 0, 0;}
 
-  100%{ transform: translate3d(-425px, 0, 0);}
+  100%{ background-position: -425px, 0;}
 }
 
 @keyframes playJump{
@@ -112,3 +30,4 @@
 	90%  { transform:translate(-13px, 60%) scale(1.2,0.7); }
 	100% { transform:translate(-13px, 60%) scale(1.4,0.7);}
 }
+
