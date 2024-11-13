@@ -1,17 +1,4 @@
 
-<<<<<<< Updated upstream
-/*Play button*/
-.mugg{
-  background-image: url('../Mugg.png') ;
-  background-size: 150px;
-  height: 280px;
-  width: 150px
-=======
->>>>>>> Stashed changes
-
-
-
-
 /*Textbox*/
 .box {
   width: 200px;
@@ -90,6 +77,8 @@
   }
 }
 
+
+/* Sliding background */
 .container {
   width: 393px;
   height: 852px;
