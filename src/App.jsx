@@ -39,6 +39,7 @@ function StartPage(){
     <div>   
       <div className='container'>
         <div className='sliding-background'> 
+
         </div>
       </div>
       
@@ -47,7 +48,7 @@ function StartPage(){
       <Link to="/takeorder">Take Play</Link>
 
       <div className="mugg">
-      <button className="button-play"></button>
+        <button className="button-play"></button>
       </div>
     </div>
   )
