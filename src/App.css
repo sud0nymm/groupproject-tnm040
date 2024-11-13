@@ -16,18 +16,3 @@
   100%{ background-position: -425px, 0;}
 }
 
-@keyframes playJump{
-  
-  0%   { transform:translate(-13px, 60%) scale(1.1,0.7) ; }
-  10%   { transform:translate(-13px, 30%) scale(0.9,1.2); }
-	20%  { transform:translate(-13px, 15%); }
-	40%  { transform:translate(-13px, 10%); }
-	50%  {transform:translate(-13px, 10%); }
-	55%  { transform:translate(-13px, 18%); }
-	60%  { transform:translate(-13px, 20%); }
-	65%  { transform:translate(-13px, 25%); }
-	70%  { transform:translate(-13px, 30%);}
-	90%  { transform:translate(-13px, 60%) scale(1.2,0.7); }
-	100% { transform:translate(-13px, 60%) scale(1.4,0.7);}
-}
-
