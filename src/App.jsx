@@ -36,41 +36,20 @@ function App() {
 function StartPage() {
 
   return (
-<<<<<<< Updated upstream
     <div>   
       <div className='container'>
         <div className='sliding-background'> 
-
+        <div><p>Test</p></div>
+      <Link to="/takeorder" className="button-play"></Link>
         </div>
-      </div>
+        
+      </div> 
       
-      <Link to="/freeplay">Free Play</Link> { /*make pretty pretty please*/ }
-      <br/>
-      <Link to="/takeorder">Take Play</Link>
-
-      <div className="mugg">
-        <button className="button-play"></button>
-      </div>
-    </div>
-=======
-    <>
+    </div>);
+  //     <Link to="/takeorder" className="button-play"></Link>
       
 
-      <Link to="/freeplay" className="container">Free Play</Link> { /*make pretty pretty please*/}
-
-      
-      { /*Knappen för "take order", välj om det ska vara playknappen, texten eller båda som ska vara klickbara*/}
-
-
-          <Link to="/takeorder" className="button-play"></Link>
-
-
-      { /*Ta bort knapp och text och ha endast drick*/}
-    </>
-
-
->>>>>>> Stashed changes
-  )
+  // )
 
 }
 

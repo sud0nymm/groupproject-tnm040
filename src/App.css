@@ -1,13 +1,4 @@
 
-<<<<<<< Updated upstream
-/*Play button*/
-.mugg{
-  background-image: url('../Mugg.png') ;
-  background-size: 150px;
-  height: 280px;
-  width: 150px
-=======
->>>>>>> Stashed changes
 
 
 
@@ -91,15 +82,16 @@
 }
 
 .container {
-  width: 393px;
-  height: 852px;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
 }
 .sliding-background {
   background: url("../sliding_background.svg") repeat;
-  height: 2130px; /*142*5 710*/
-  width: 1275px; /*425 elr 568*/  /* 1275 elr 1704*/
+  height: 2130px; /* 142*5 710*/
+  width: 1275px; /*425 elr 568  1275 elr 1704  */
   animation: slide 30s linear infinite;
+  z-index: -10;
 }
 
 @keyframes slide {
