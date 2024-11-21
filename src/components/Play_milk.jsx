@@ -28,6 +28,10 @@ function ThreeBoxes(){
     
 }
 
+function TheAnimation(){
+
+}
+
 function Holdable_box({imgsrc}) {
 
     const [isHolding, setIsHolding] = useState(false);
@@ -77,18 +81,19 @@ function Holdable_box({imgsrc}) {
                 />
             </div>
 
-            {isHolding && (
-                <img
+            <div> 
+                {isHolding && (
+                <img className='animationBox'
                     src="cat.gif" // This could be any image
                     alt="Held Image"
                     style={{
-                        float: 'left',
                         width: '200px',
                         height: '200px',
                         pointerEvents: 'none', // Prevent interaction with this image
                     }}
                 />
-            )}
+            )} </div>
+            
 
         </div>
     )

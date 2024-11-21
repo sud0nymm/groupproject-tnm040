@@ -23,3 +23,12 @@
     width: 100vw;
     height: 100vh;
   }
+
+.animationBox{
+  position: absolute;
+  top: 35%; 
+  left: 50%; /* these need to be adjusted in the end*/
+  width: '200px';
+  height: '200px';
+  pointer-events: 'none';
+}
