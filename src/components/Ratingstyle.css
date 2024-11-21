@@ -1,0 +1,17 @@
+
+.background{
+    background: url("") ;
+
+}
+
+.replaybutton{
+    background: url("../replay.svg") no-repeat;
+  background-size: 100%;
+  position: fixed;
+  bottom: 30px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  width: 50px; /* Adjust size */
+  height: 60px; /* Adjust size */
+  background-size: cover;
+}

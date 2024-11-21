@@ -2,8 +2,8 @@ import { useState } from 'react'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './componentStyles.css'
-import { useParams, useLocation } from 'react-router-dom';
-
+import { useParams, useLocation,Link } from 'react-router-dom';
+import './Ratingstyle.css'
 
 function RatingPage(){
 
@@ -12,13 +12,21 @@ function RatingPage(){
     const staramount = id;
     console.log(staramount);// is the amount of stars the user got, sent in by the URL
 
-    //sndfgjikliwrhjgoäiewrhjngoirehgtiåpuow4rugbhiögwhuip
+    function stars(){
+        
+    }
+
 
     return (
-       <> <div> <p> Rating Page </p> </div>
-        <p></p>
+       <><div className = 'sliding-background'> 
+
+
+
+        <Link to="/"> <button className='replaybutton'></button></Link></div>
+    
         </>
-    )
+    )  
+
 }
 
 export default RatingPage
