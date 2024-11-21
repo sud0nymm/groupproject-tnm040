@@ -18,3 +18,8 @@
     height: 100vh; /* Full viewport height to center vertically */
     background-color: #f0f0f0; /* Optional background color for the container */
 }
+  .takeOrder{
+    background-image: url(../background.png);
+    width: 100vw;
+    height: 100vh;
+  }
