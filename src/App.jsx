@@ -33,12 +33,32 @@ function App() {
   );
 }
 
+
+
 function StartPage() {
+  
+  const [showPopup, setShowPopup] = useState(false);
+  const togglePopup = () => {
+    setShowPopup(!showPopup);      
+  }
 
   return (
     <>
       <div className='sliding-background'>
         <Link to="/takeorder"> <button className='button'></button></Link>
+        <button id='close-button' onClick={togglePopup} >X</button>
+        {showPopup &&(
+          <>
+            <div className ='pop1'>
+              <div className='pop2'>
+              
+                <h2>Bearista <button onClick={togglePopup} className='pop3'>X</button></h2>
+                <p>Bearista is a coffee making game where an order is placed and it is your job to make it as similar as possible</p>
+              </div>
+            </div>
+          </>
+      )}
+      <button className='image-button' onClick={togglePopup}></button>
       </div>
     </>
   )
