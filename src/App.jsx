@@ -45,7 +45,7 @@ function StartPage() {
   return (
     <>
       <div className='sliding-background'>
-        <Link to="/takeorder"> <button className='button'></button></Link>
+        <Link to="/play"> <button className='button'></button></Link>
         <button id='close-button' onClick={togglePopup} >X</button>
         {showPopup &&(
           <>
