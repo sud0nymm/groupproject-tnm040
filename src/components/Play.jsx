@@ -12,13 +12,13 @@ function Play() {
 
   return (
     <div> <p> Play Page </p>
-      <DraggableBox> </DraggableBox>
+      <DraggableBox imgsrc= {"Beacon_JE6_BE2.png"}> </DraggableBox>
     </div>
 
   )
 }
 
-function DraggableBox() {
+function DraggableBox({imgsrc}) {
 
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [test1, setTest1] = useState(false);
@@ -49,7 +49,8 @@ function DraggableBox() {
       >
         <div className="testbox" style={{ padding: '10px', backgroundColor: 'lightblue', cursor: 'move' }}>
           <img 
-          src= "Beacon_JE6_BE2.png" 
+          src = {imgsrc} 
+          alt = "Drag this"
           style={{ width: '200px', height: '200px' }}
           onDragStart={handleDragStart}
           />

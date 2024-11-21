@@ -9,8 +9,7 @@ function Play_milk() {
 
     return (
         <div> 
-            <Holdable_box imgsrc= {"Beacon_JE6_BE2.png"}/>
-
+            <ThreeBoxes/>
         </div>
 
     )
@@ -21,6 +20,8 @@ function ThreeBoxes(){
     return (
         
         <div className='container'>
+            <Holdable_box imgsrc= {"Beacon_JE6_BE2.png"}/>
+            <Holdable_box imgsrc= {"Beacon_JE6_BE2.png"}/>
             <Holdable_box imgsrc= {"Beacon_JE6_BE2.png"}/>
         </div>
     )
@@ -65,7 +66,8 @@ function Holdable_box({imgsrc}) {
 
     return (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-            onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} > {/* handles holding on the div */}
+            onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}
+            > {/* handles holding on the div */}
 
             <div className="testbox" style={{ padding: '10px', backgroundColor: 'lightblue', cursor: 'move' }}>
                 <img
@@ -80,6 +82,7 @@ function Holdable_box({imgsrc}) {
                     src="cat.gif" // This could be any image
                     alt="Held Image"
                     style={{
+                        float: 'left',
                         width: '200px',
                         height: '200px',
                         pointerEvents: 'none', // Prevent interaction with this image
