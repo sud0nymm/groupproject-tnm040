@@ -12,11 +12,12 @@ function RatingPage(){
     const staramount = id;
     console.log(staramount);// is the amount of stars the user got, sent in by the URL
 
-    
+    //sndfgjikliwrhjgoäiewrhjngoirehgtiåpuow4rugbhiögwhuip
 
     return (
-        <div> <p> Rating Page </p> </div>
-
+       <> <div> <p> Rating Page </p> </div>
+        <p></p>
+        </>
     )
 }
 
