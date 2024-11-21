@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import './App.css'
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Draggable from 'react-draggable';
-import {DraggableCore} from 'react-draggable';
-import TakeOrder from './components/TakeOrder.jsx';
-import FreePlay from './components/FreePlay.jsx';
-import RatingPage from './components/RatingPage.jsx';
 import { BrowserRouter, Routes, Route, useParams , Link} from 'react-router-dom';
+
+import Play from './components/Play.jsx';
+import RatingPage from './components/RatingPage.jsx';
+import Play_milk from './components/Play_milk.jsx';
+
 
 
 function App() {
@@ -20,12 +19,11 @@ function App() {
           
           <Route path="" element={ <StartPage /> }  /> {/* START PAGE */}
         
-          <Route path="/freeplay" element={<FreePlay />} />  {/* FREE PLAY PAGE */}
+          <Route path="/playmilk" element={<Play_milk />} />  {/* TAKE ORDER PAGE */}
 
-          <Route path="/takeorder" element={<TakeOrder />} />  {/* TAKE ORDER PAGE */}
+          <Route path="/play" element={<Play />} />  {/* TAKE ORDER PAGE */}
 
-          <Route path="/ratingpage" element={<RatingPage />} />  {/* RATING PAGE */}
-
+          <Route path="/ratingpage/:id" element={<RatingPage />} /> { /* ROUTING PAGE, ID IS THE SCORE*/ }
         </Routes>
       
     </BrowserRouter>
@@ -37,9 +35,7 @@ function StartPage(){
 
   return (
     <div>   
-    <Link to="/freeplay">Free Play</Link> { /*make pretty pretty please*/ }
-    <br/>
-    <Link to="/takeorder">Take Play</Link>
+    <Link to="/play"> Play</Link>
 
     <>
     <div className="mugg">
