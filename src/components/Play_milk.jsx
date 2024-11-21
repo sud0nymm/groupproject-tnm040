@@ -18,11 +18,14 @@ function Play_milk() {
 function ThreeBoxes(){
 
     return (
-        //"Beacon_JE6_BE2.png"
         <div className='container'>
-            <Holdable_box className="milk-button" imgsrc= {"Cow-btn.svg"}/>
-            <Holdable_box className="milk-button" imgsrc= {"Almond-btn.svg"}/>
-            <Holdable_box className="milk-button" imgsrc= {"Coco-btn.svg"}/>
+          <div className='milk-machine'>
+            <div className='milk-buttons-box'>
+              <Holdable_box className="milk-button" imgsrc= {"Cow-btn.svg"}/>
+              <Holdable_box className="milk-button" imgsrc= {"Almond-btn.svg"}/>
+              <Holdable_box className="milk-button" imgsrc= {"Coco-btn.svg"}/>
+            </div>
+          </div>
         </div>
     )
     
