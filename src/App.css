@@ -15,7 +15,9 @@
 
   100%{ background-position: -425px, 0;}
 }
-
+body{
+  overflow: hidden;
+}
 .button{
   background: url("../bear_play.svg") no-repeat;
   height: 307px;
@@ -59,7 +61,8 @@
 
 .pop3{
   font-size: 10px;
-  
+  float: right;
+  margin-right: 20px;
 }
 
 #close-button{
