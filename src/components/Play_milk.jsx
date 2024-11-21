@@ -18,11 +18,11 @@ function Play_milk() {
 function ThreeBoxes(){
 
     return (
-        
+        //"Beacon_JE6_BE2.png"
         <div className='container'>
-            <Holdable_box imgsrc= {"Beacon_JE6_BE2.png"}/>
-            <Holdable_box imgsrc= {"Beacon_JE6_BE2.png"}/>
-            <Holdable_box imgsrc= {"Beacon_JE6_BE2.png"}/>
+            <Holdable_box className="milk-button" imgsrc= {"Cow-btn.svg"}/>
+            <Holdable_box className="milk-button" imgsrc= {"Cow-btn.svg"}/>
+            <Holdable_box className="milk-button" imgsrc= {"Cow-btn.svg"}/>
         </div>
     )
     
@@ -73,11 +73,10 @@ function Holdable_box({imgsrc}) {
             onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}
             > {/* handles holding on the div */}
 
-            <div className="testbox" style={{ padding: '10px', backgroundColor: 'lightblue', cursor: 'move' }}>
+            <div className="milk-button">
                 <img
                     src={imgsrc} 
                     alt = "Holdable Item"
-                    style={{ width: '200px', height: '200px' }}
                 />
             </div>
 
@@ -86,11 +85,6 @@ function Holdable_box({imgsrc}) {
                 <img className='animationBox'
                     src="cat.gif" // This could be any image
                     alt="Held Image"
-                    style={{
-                        width: '200px',
-                        height: '200px',
-                        pointerEvents: 'none', // Prevent interaction with this image
-                    }}
                 />
             )} </div>
             

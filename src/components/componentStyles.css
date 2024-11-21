@@ -16,6 +16,7 @@
     justify-content: center; /* Horizontally center the boxes */
     align-items: center; /* Vertically center the boxes */
     height: 100vh; /* Full viewport height to center vertically */
+    width: 100vw;
     background-color: #f0f0f0; /* Optional background color for the container */
 }
   .takeOrder{
@@ -28,7 +29,14 @@
   position: absolute;
   top: 35%; 
   left: 50%; /* these need to be adjusted in the end*/
-  width: '200px';
-  height: '200px';
+  width: 70px;
+  height: 70px; /* animation size */
   pointer-events: 'none';
+  
 }
+
+  /* =========== Play Milk ============================================================ */
+  .milk-button {
+    width: 70px;
+    height: 70px;
+  }
