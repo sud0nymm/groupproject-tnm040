@@ -5,9 +5,10 @@ import ReactDOM from 'react-dom';
 import Draggable from 'react-draggable';
 import { DraggableCore } from 'react-draggable';
 import { BrowserRouter, Routes, Route, useParams, Link } from 'react-router-dom';
-import Play from './components/Play.jsx';
+import Serving from './components/Serving.jsx';
 import RatingPage from './components/RatingPage.jsx';
 import Play_milk from './components/Play_milk.jsx';
+import Play_coffe from './components/Play_coffee.jsx';
 
 
 
@@ -21,9 +22,11 @@ function App() {
           
           <Route path="" element={ <StartPage /> }  /> {/* START PAGE */}
         
-          <Route path="/playmilk" element={<Play_milk />} />  {/* TAKE ORDER PAGE */}
+          <Route path="/playmilk" element={<Play_milk />} />  {/* Play milk */}
 
-          <Route path="/play" element={<Play />} />  {/* TAKE ORDER PAGE */}
+          <Route path="/playcoffee/:id" element={<Play_coffe />} />  {/* PLay coffee */}
+
+          <Route path="/serving" element={<Serving />} />  {/* Serving page (change name?) */}
 
           <Route path="/ratingpage/:id" element={<RatingPage />} /> { /* ROUTING PAGE, ID IS THE SCORE*/ }
         </Routes>
@@ -45,7 +48,7 @@ function StartPage() {
   return (
     <>
       <div className='sliding-background'>
-        <Link to="/play"> <button className='button'></button></Link>
+        <Link to="/playmilk"> <button className='button'></button></Link>
         <button id='close-button' onClick={togglePopup} >X</button>
         {showPopup &&(
           <>

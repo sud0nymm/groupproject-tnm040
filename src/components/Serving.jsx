@@ -2,13 +2,13 @@ import { useState } from 'react'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Draggable from 'react-draggable';
-import { DraggableCore } from 'react-draggable'; // <DraggableCore>
 import './componentStyles.css'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
+// global var for rating
 let stars = 0;
 
-function Play() {
+function Serving() {
 
   return (
     <div> <p> Play Page </p>
@@ -81,4 +81,4 @@ function goalBox(xcurrent, ycurrent, setPosition, navigate) {
 
 }
 
-export default Play
+export default Serving;
