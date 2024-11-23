@@ -27,12 +27,13 @@
   }
 
 .animationBox{
-  position: absolute;
-  top: 37%; 
-  left: 40%; /* these need to be adjusted in the end*/
+  position: fixed;
+  top: 50vh;
+  left: 50vw; /* these need to be adjusted in the end*/
   width: 70px;
   height: 70px; /* animation size */
   pointer-events: 'none';
+  transform: translate(-50%, -50%);
   
 }
 .milk-buttons-box {

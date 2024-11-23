@@ -65,7 +65,7 @@ function Holdable_box({imgsrc}) {
             
             if(!isHoldingRef.current){
                 console.log("delay over");
-                navigate(`/playcoffee/${ratingsystem()}`);
+                //navigate(`/playcoffee/${ratingsystem()}`);
                 // go to Play COFFEE NEXT!!
             } else {
                 console.log("button held")
@@ -78,6 +78,7 @@ function Holdable_box({imgsrc}) {
     return (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}
+            onTouchStart={handleMouseDown} onTouchEnd={handleMouseUp}
             > {/* handles holding on the div */}
 
             <div className="milk-button">
