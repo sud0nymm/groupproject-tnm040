@@ -6,62 +6,78 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+// INFO for some reason in this file a " / " is required before the images, or else they don't load (?????)
+
+/* coffee animation is supposed to be a button press, 
+a dynamic wait time depending on the amount of coffe (make a volume of coffee bar later) and
+then a fixed wait after the end of animation, then reroute to serving  */
 
 function Play_coffe() {
+    
+    //useparams must be here
+    const { id } = useParams();
+    const staramount = id; 
 
     return (
         <div> 
-            <ThreeBoxes/>
+            <ThreeBoxes stars= { staramount }/>
         </div>
 
     )
 }
 
-function ThreeBoxes(){
+function ThreeBoxes({stars}){ // star amountfrom link
 
-    ratingsystem();
+    //console.log(stars)
 
     return (
-        //"Beacon_JE6_BE2.png"          // CHANGE THE IMAGES FOR THIS ONE!!!!!!
+        //"Beacon_JE6_BE2.png"          // CHANGE THE IMAGES FOR THIS ONE!!!!!! to beans
         <div className='container'>
-            <Holdable_box className="milk-button" imgsrc= {"Cow-btn.svg"}/> 
-            <Holdable_box className="milk-button" imgsrc= {"Almond-btn.svg"}/>
-            <Holdable_box className="milk-button" imgsrc= {"Coco-btn.svg"}/>
+          <div className='milk-machine'>
+            <div className='milk-buttons-box'>
+              <Pressable_box className="milk-button" imgsrc= {"/Beacon_JE6_BE2.png"}/>
+              <Pressable_box className="milk-button" imgsrc= {"/Beacon_JE6_BE2.png"}/>
+              <Pressable_box className="milk-button" imgsrc= {"/Beacon_JE6_BE2.png"}/>
+            </div>
+          </div>
         </div>
     )
     
 }
 
-function Holdable_box({imgsrc}) {
+function Pressable_box ({imgsrc, currentstars}) {
 
-    const [isHolding, setIsHolding] = useState(false);
+    const [hasPressed, setHasPressed] = useState(false);
 
-    const handleMouseDown = () => { // IS SUPPOSED TO HAVE A DELAY THEN REROUTE TO SERVING
+    const handlePress = () => { // IS SUPPOSED TO HAVE A DELAY THEN REROUTE TO SERVING
 
-        ratingsystem(imgsrc); // can also reroute here
-        setIsHolding(true); // start holding
-        //console.log("holding...");
+        if (hasPressed == true) return; // returns so that you can't press other buttons after pressing one once
+        // make the animation on a timer since coffee isn't a hold game, but jsut press
+        // after timer go to serving.jsx
 
+        setHasPressed(true);
+        ratingsystem(imgsrc, currentstars); // can also reroute here
+        
     };
 
     return (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-            onClick={handleMouseDown}
+            onClick={handlePress} onTouchStart={handlePress}
             > {/* handles holding on the div */}
 
             <div className="milk-button">
                 <img
                     src={imgsrc} 
                     alt = "coffee bean"
+                    width= "70px" //widht and height?
                 />
             </div>
 
             <div> 
-                {isHolding && (
+            {hasPressed && ( 
                 <img className='animationBox'
-                    src="cat.gif" // This could be any image
-                    alt="Held Image"
-                    alignItems="center"
+                    src="/cat.gif" // This could be any image
+                    alt="Held Image" 
                 />
             )} </div>
             
@@ -70,13 +86,17 @@ function Holdable_box({imgsrc}) {
     )
 }
 
-function ratingsystem(imgsrc){
+function ratingsystem(imgsrc, currentstars){ // rating system rates user, then send them to the serving.jsx
 
-    const { id } = useParams();
-    const staramount = id;
-    console.log(staramount);// is the amount of stars the user got, sent in by the URL
 
-    console.log(imgsrc);
+    //console.log(currentstars);
+    //console.log(imgsrc);
+
+    setTimeout(() => { // timer that later redirects the page to the ratingpage, with dynamic url
+            
+        console.log("after press?")
+
+    }, 2000);
 
 
 }

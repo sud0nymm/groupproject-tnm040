@@ -52,7 +52,7 @@
   display: flex;
   align-items: start;
   justify-content: center;
-  background: url("MachineMilk.svg") no-repeat;
+  background: url("/MachineMilk.svg") no-repeat;
   width: 360px; /* w 360px, h 576px */
   height: 576px;
 }
