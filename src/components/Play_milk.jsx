@@ -5,11 +5,13 @@ import './componentStyles.css'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
+let stars = 0;
+
 function Play_milk() {
 
     return (
         <div> 
-            <ThreeBoxes/>
+            <ThreeBoxes/> 
         </div>
 
     )
@@ -18,6 +20,7 @@ function Play_milk() {
 function ThreeBoxes(){
 
     return (
+        //"Beacon_JE6_BE2.png"
         <div className='container'>
           <div className='milk-machine'>
             <div className='milk-buttons-box'>
@@ -31,14 +34,12 @@ function ThreeBoxes(){
     
 }
 
-function TheAnimation(){
-
-}
-
 function Holdable_box({imgsrc}) {
 
     const [isHolding, setIsHolding] = useState(false);
     const [hasClicked, setHasClicked] = useState(false);
+
+    const navigate = useNavigate();
 
     const isHoldingRef = useRef(false);
 
@@ -49,6 +50,7 @@ function Holdable_box({imgsrc}) {
     },[isHolding, hasClicked] )
 
     const handleMouseDown = () => {
+        ratingsystem(imgsrc);
         setHasClicked(true);
         setIsHolding(true); // start holding
         //console.log("holding...");
@@ -63,6 +65,8 @@ function Holdable_box({imgsrc}) {
             
             if(!isHoldingRef.current){
                 console.log("delay over");
+                navigate(`/playcoffee/${ratingsystem()}`);
+                // go to Play COFFEE NEXT!!
             } else {
                 console.log("button held")
             }
@@ -94,6 +98,13 @@ function Holdable_box({imgsrc}) {
 
         </div>
     )
+}
+
+function ratingsystem(imgsrc){
+    let staramount = 2; // change to do shit blehhhh
+    console.log(imgsrc);
+
+    return staramount;
 }
 
 export default Play_milk;
