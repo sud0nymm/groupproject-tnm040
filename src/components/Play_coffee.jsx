@@ -32,7 +32,7 @@ function ThreeBoxes({stars}){ // star amountfrom link
 
     return (
         //"Beacon_JE6_BE2.png"          // CHANGE THE IMAGES FOR THIS ONE!!!!!! to beans
-        <div className='container'>
+        /* <div className='container'>
           <div className='milk-machine'>
             <div className='milk-buttons-box'>
               <Pressable_box className="milk-button" imgsrc= {"/Beacon_JE6_BE2.png"}/>
@@ -40,7 +40,8 @@ function ThreeBoxes({stars}){ // star amountfrom link
               <Pressable_box className="milk-button" imgsrc= {"/Beacon_JE6_BE2.png"}/>
             </div>
           </div>
-        </div>
+        </div> */
+        <CoffeBar/>
     )
     
 }
@@ -83,6 +84,13 @@ function Pressable_box ({imgsrc, currentstars}) {
             
 
         </div>
+    )
+}
+
+function CoffeBar(){
+    return (
+        <div> <img src="/bar.png" width="180vw" /> </div>
+        
     )
 }
 
