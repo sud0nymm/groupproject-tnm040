@@ -41,20 +41,29 @@ function DraggableBox() {
   };
 
   return (
-
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <Draggable 
-      onStop={handleStop}
-      position={position} 
-      >
-        <div className="testbox" style={{ padding: '10px', backgroundColor: 'lightblue', cursor: 'move' }}>
-          <img 
-          src= "Beacon_JE6_BE2.png" 
-          style={{ width: '200px', height: '200px' }}
-          onDragStart={handleDragStart}
-          />
-        </div>
-      </Draggable>
+    
+    <div >
+      <img src="../public/cloud.png" alt="Cloud" className="cloud11" />
+          <img src="../public/cloud.png" alt="Cloud" className="cloud22" />
+          <img src="../public/cloud.png" alt="Cloud" className="cloud33" />
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Draggable 
+        onStop={handleStop}
+        position={position} 
+        >
+          <div className="testbox" style={{ padding: '10px', backgroundColor: 'lightblue', cursor: 'move' }}>
+            <img 
+            src= "Beacon_JE6_BE2.png" 
+            style={{ width: '200px', height: '200px' }}
+            
+            onDragStart={handleDragStart}
+            />
+            
+          </div>
+        </Draggable>
+      </div>
+      
+      
     </div>
   )
 }

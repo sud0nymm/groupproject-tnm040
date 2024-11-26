@@ -4,14 +4,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Draggable from 'react-draggable';
 import { DraggableCore } from 'react-draggable';
-import { BrowserRouter, Routes, Route, useParams, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams, Link, useNavigate } from 'react-router-dom';
 import Play from './components/Play.jsx';
 import RatingPage from './components/RatingPage.jsx';
 import Play_milk from './components/Play_milk.jsx';
 
 
 
+
 function App() {
+
+
   return (
 
 
@@ -19,7 +22,7 @@ function App() {
           
         <Routes>
           
-          <Route path="" element={ <StartPage /> }  /> {/* START PAGE */}
+          <Route path="/" element={ <StartPage /> }  /> {/* START PAGE */}
         
           <Route path="/playmilk" element={<Play_milk />} />  {/* TAKE ORDER PAGE */}
 
@@ -36,7 +39,20 @@ function App() {
 
 
 function StartPage() {
-  
+  const [isAnimating, setIsAnimating] = useState(false); // State för animation
+  const navigate = useNavigate(); // För programmatisk navigering
+
+  const handleLinkClick = (event) => {
+
+    // Starta animationen
+    setIsAnimating(true);
+
+    // Navigera till "/play" efter animationen är klar (4 sekunder)
+    setTimeout(() => {
+      navigate("/play"); // Programmatisk navigering
+    }, 2000); // Matchar animationens längd
+  };
+
   const [showPopup, setShowPopup] = useState(false);
   const togglePopup = () => {
     setShowPopup(!showPopup);      
@@ -44,8 +60,16 @@ function StartPage() {
 
   return (
     <>
-      <div className='sliding-background'>
-        <Link to="/play"> <button className='button'></button></Link>
+      <div className="sliding-background">
+      {/* Bilder som triggar animation */}
+      <img src="../public/cloud.png" alt="Cloud" className={`cloud1 ${isAnimating ? 'animate' : ''}`} />
+      <img src="../public/cloud.png" alt="Cloud" className={`cloud2 ${isAnimating ? 'animate' : ''}`} />
+      <img src="../public/cloud.png" alt="Cloud" className={`cloud3 ${isAnimating ? 'animate' : ''}`} />
+
+      {/* Link som triggar handleLinkClick */}
+      <Link onClick={handleLinkClick}>
+        <button className="button"></button>
+      </Link>
         <button id='close-button' onClick={togglePopup} >X</button>
         {showPopup &&(
           <>
