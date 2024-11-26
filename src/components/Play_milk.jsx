@@ -5,12 +5,13 @@ import './componentStyles.css'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
+let stars = 0;
+
 function Play_milk() {
 
     return (
         <div> 
-            <Holdable_box imgsrc= {"Beacon_JE6_BE2.png"}/>
-
+            <ThreeBoxes/> 
         </div>
 
     )
@@ -19,9 +20,15 @@ function Play_milk() {
 function ThreeBoxes(){
 
     return (
-        
+        //"Beacon_JE6_BE2.png"
         <div className='container'>
-            <Holdable_box imgsrc= {"Beacon_JE6_BE2.png"}/>
+          <div className='milk-machine'>
+            <div className='milk-buttons-box'>
+              <Holdable_box className="milk-button" imgsrc= {"Cow-btn.svg"}/>
+              <Holdable_box className="milk-button" imgsrc= {"Almond-btn.svg"}/>
+              <Holdable_box className="milk-button" imgsrc= {"Coco-btn.svg"}/>
+            </div>
+          </div>
         </div>
     )
     
@@ -32,6 +39,8 @@ function Holdable_box({imgsrc}) {
     const [isHolding, setIsHolding] = useState(false);
     const [hasClicked, setHasClicked] = useState(false);
 
+    const navigate = useNavigate();
+
     const isHoldingRef = useRef(false);
 
     useEffect(() => { 
@@ -41,6 +50,7 @@ function Holdable_box({imgsrc}) {
     },[isHolding, hasClicked] )
 
     const handleMouseDown = () => {
+        ratingsystem(imgsrc);
         setHasClicked(true);
         setIsHolding(true); // start holding
         //console.log("holding...");
@@ -55,6 +65,8 @@ function Holdable_box({imgsrc}) {
             
             if(!isHoldingRef.current){
                 console.log("delay over");
+                //navigate(`/playcoffee/${ratingsystem()}`);
+                // go to Play COFFEE NEXT!!
             } else {
                 console.log("button held")
             }
@@ -65,30 +77,35 @@ function Holdable_box({imgsrc}) {
 
     return (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-            onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} > {/* handles holding on the div */}
+            onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}
+            onTouchStart={handleMouseDown} onTouchEnd={handleMouseUp}
+            > {/* handles holding on the div */}
 
-            <div className="testbox" style={{ padding: '10px', backgroundColor: 'lightblue', cursor: 'move' }}>
+            <div className="milk-button">
                 <img
                     src={imgsrc} 
                     alt = "Holdable Item"
-                    style={{ width: '200px', height: '200px' }}
                 />
             </div>
 
-            {isHolding && (
-                <img
+            <div> 
+                {isHolding && (
+                <img className='animationBox'
                     src="cat.gif" // This could be any image
                     alt="Held Image"
-                    style={{
-                        width: '200px',
-                        height: '200px',
-                        pointerEvents: 'none', // Prevent interaction with this image
-                    }}
                 />
-            )}
+            )} </div>
+            
 
         </div>
     )
+}
+
+function ratingsystem(imgsrc){
+    let staramount = 2; // change to do shit blehhhh
+    console.log(imgsrc);
+
+    return staramount;
 }
 
 export default Play_milk;
