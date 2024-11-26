@@ -2,23 +2,23 @@ import { useState } from 'react'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Draggable from 'react-draggable';
+import { DraggableCore } from 'react-draggable'; // <DraggableCore>
 import './componentStyles.css'
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-// global var for rating
 let stars = 0;
 
-function Serving() {
+function Play() {
 
   return (
     <div> <p> Play Page </p>
-      <DraggableBox imgsrc= {"Beacon_JE6_BE2.png"}> </DraggableBox>
+      <DraggableBox> </DraggableBox>
     </div>
 
   )
 }
 
-function DraggableBox({imgsrc}) {
+function DraggableBox() {
 
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [test1, setTest1] = useState(false);
@@ -41,21 +41,29 @@ function DraggableBox({imgsrc}) {
   };
 
   return (
-
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <Draggable 
-      onStop={handleStop}
-      position={position} 
-      >
-        <div className="testbox" style={{ padding: '10px', backgroundColor: 'lightblue', cursor: 'move' }}>
-          <img 
-          src = {imgsrc} 
-          alt = "Drag this"
-          style={{ width: '200px', height: '200px' }}
-          onDragStart={handleDragStart}
-          />
-        </div>
-      </Draggable>
+    
+    <div >
+      <img src="../public/cloud.png" alt="Cloud" className="cloud11" />
+          <img src="../public/cloud.png" alt="Cloud" className="cloud22" />
+          <img src="../public/cloud.png" alt="Cloud" className="cloud33" />
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Draggable 
+        onStop={handleStop}
+        position={position} 
+        >
+          <div className="testbox" style={{ padding: '10px', backgroundColor: 'lightblue', cursor: 'move' }}>
+            <img 
+            src= "Beacon_JE6_BE2.png" 
+            style={{ width: '200px', height: '200px' }}
+            
+            onDragStart={handleDragStart}
+            />
+            
+          </div>
+        </Draggable>
+      </div>
+      
+      
     </div>
   )
 }
@@ -81,4 +89,4 @@ function goalBox(xcurrent, ycurrent, setPosition, navigate) {
 
 }
 
-export default Serving;
+export default Play
