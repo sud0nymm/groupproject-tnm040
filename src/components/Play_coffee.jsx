@@ -89,7 +89,7 @@ function Pressable_box ({imgsrc, currentstars}) {
 
 function CoffeBar(){
     return (
-        <div> <img src="/bar.png" width="180vw" /> </div>
+        <div> <p> not at all finished </p> </div>
         
     )
 }
