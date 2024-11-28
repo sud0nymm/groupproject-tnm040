@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Draggable from 'react-draggable';
 import { DraggableCore } from 'react-draggable';
-import { BrowserRouter, Routes, Route, useParams, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams, Link, useNavigate } from 'react-router-dom';
 import Serving from './components/Serving.jsx';
 import RatingPage from './components/RatingPage.jsx';
 import Play_milk from './components/Play_milk.jsx';
