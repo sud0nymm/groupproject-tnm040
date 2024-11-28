@@ -4,10 +4,13 @@
   overflow: hidden;
 
   background: url("../sliding_background.svg") repeat;
-
-
   animation: slide 30s linear infinite;
   z-index: -10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 @keyframes slide {
@@ -24,7 +27,6 @@ body{
   width: 205px;
   display: flex;
   justify-self: center;
-  margin-top: 70%;
   
 }
 
