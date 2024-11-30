@@ -20,21 +20,63 @@
     width: 100vw;
     background-color: #f0f0f0; /* Optional background color for the container */
 }
-  .takeOrder{
-    background-image: url(../background.png);
-    width: 100vw;
-    height: 100vh;
-  }
+.takeOrder{
+  background-image: url(../background.png);
+  width: 100vw;
+  height: 100vh;
+}
 
+.pourAnimationContainer {
+  position: fixed;
+  top: 10vh;
+  left: 10vw; 
+  width: 70px;
+  height: 0px; 
+  transform: translate(-50%, -50%);
+}
 .animationBox{
   position: fixed;
-  top: 50vh;
+  top: 30vh;
   left: 50vw; /* these need to be adjusted in the end*/
   width: 70px;
   height: 70px; /* animation size */
   pointer-events: 'none';
   transform: translate(-50%, -50%);
   
+}
+.milkmug {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url("fillMug.svg");
+  overflow: hidden;
+  height: 358px;
+  width: 262px;
+  margin-top: 110px;
+  
+}
+.fillAnimationContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: 358px;
+  width: 262px;
+  clip-path: polygon(5% 0, 95% 0, 85% 96%, 15% 96%);
+}
+.fillAnimation {
+  background: url("milkFillAnim.svg") repeat;
+  margin-top: 100px;
+  width: 640px; /* w: 160 */
+  max-height: 280px;
+  animation: fill 10s linear ;
+}
+@keyframes fill {
+  0%{ background-position: 0, 0;
+      height: 0%;}
+
+  100%{ background-position: -160px, 0;
+        height: 100%;}
 }
 .milk-buttons-box {
   margin-top: 60px;
@@ -50,10 +92,12 @@
 
 .milk-machine {
   display: flex;
-  align-items: start;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
   background: url("/MachineMilk.svg") no-repeat;
   width: 360px; /* w 360px, h 576px */
+<<<<<<< Updated upstream
   height: 576px;
 }
 
@@ -102,4 +146,7 @@
 .coffeebox2 img{
   max-width: 80%;
   align-self: center;
+=======
+  height: 683px;
+>>>>>>> Stashed changes
 }

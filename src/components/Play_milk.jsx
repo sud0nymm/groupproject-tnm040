@@ -23,13 +23,19 @@ function Play_milk() {
 function ThreeBoxes(){
 
     return (
-        //"Beacon_JE6_BE2.png"
         <div className='container'>
           <div className='milk-machine'>
             <div className='milk-buttons-box'>
               <Holdable_box className="milk-button" imgsrc= {"Cow-btn.svg"}/>
               <Holdable_box className="milk-button" imgsrc= {"Almond-btn.svg"}/>
               <Holdable_box className="milk-button" imgsrc= {"Coco-btn.svg"}/>
+            </div>
+            <div className='milkmug'>
+              <div className='fillAnimationContainer'>
+                <div className='fillAnimation'>
+
+                </div>
+              </div> 
             </div>
           </div>
         </div>
@@ -91,14 +97,14 @@ function Holdable_box({imgsrc}) {
                 />
             </div>
 
-            <div> 
+            <div className='pourAnimationContainer'> 
                 {isHolding && (
                 <img className='animationBox'
                     src="cat.gif" // This could be any image
                     alt="Held Image"
                 />
-            )} </div>
-            
+            )} 
+            </div>
 
         </div>
     )
