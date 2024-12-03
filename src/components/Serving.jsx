@@ -11,10 +11,18 @@ let stars = 0;
 function Serving() {
 
   return (
-    <div> <p> Play Page </p>
-      <DraggableBox imgsrc= {"Beacon_JE6_BE2.png"}> </DraggableBox>
+    <div className='full'>
+      <div className='desertholder'>
+        <div className='desertshelf'>
+          <DraggableBox imgsrc={"Beacon_JE6_BE2.png"}> </DraggableBox>
+          <DraggableBox imgsrc={"Beacon_JE6_BE2.png"}> </DraggableBox>
+        </div>
+        <div className='desertshelf'>
+          <DraggableBox imgsrc={"Beacon_JE6_BE2.png"}> </DraggableBox>
+          <DraggableBox imgsrc={"Beacon_JE6_BE2.png"}> </DraggableBox>
+        </div>
+      </div>
     </div>
-
   )
 }
 
@@ -37,7 +45,14 @@ function DraggableBox({imgsrc}) {
   const handleStop = (e, data) => { //handles stop of the draggable box
     console.log("Final position:", { x: data.x, y: data.y });
     goalBox(data.x, data.y, setPosition, navigate);
-    setTest1(true); // adds stars once
+
+    console.log(imgsrc);
+
+    if (imgsrc == "Beacon_JE6_BE2.png"){ // imgsrc is the content that is being dragged
+      setTest1(true); // adds stars once
+    } else {
+      setTest1(false);
+    }
   };
 
   return (
@@ -51,7 +66,7 @@ function DraggableBox({imgsrc}) {
           <img 
           src = {imgsrc} 
           alt = "Drag this"
-          style={{ width: '200px', height: '200px' }}
+          style={{ width: '70px', height: '70px' }}
           onDragStart={handleDragStart}
           />
         </div>
@@ -62,9 +77,9 @@ function DraggableBox({imgsrc}) {
 
 function goalBox(xcurrent, ycurrent, setPosition, navigate) {
 
-  const margin = 100; //100 px margin
-  const goalx = 400;
-  const goaly= 50;
+  const margin = 50; // px margin
+  const goalx = 170; // final position in x and y for box being dragged
+  const goaly= -120;
   const snapPosition = {x:goalx, y:goaly};
 
   if(goalx + margin >= xcurrent && goalx - margin <= xcurrent && goaly + margin >= ycurrent && goaly - margin <= ycurrent){ //checks a range for x and y variables
