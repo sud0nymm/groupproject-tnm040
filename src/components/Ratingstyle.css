@@ -1,0 +1,56 @@
+
+.replaybutton{
+    background: url("../replay.svg") no-repeat;
+  background-size: 100%;
+  position: fixed;
+  bottom: 30px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  width: 110px; /* Adjust size */
+  height: 120px; /* Adjust size */
+  background-size: cover;
+}
+
+
+.flex{
+  display:flex;
+}
+
+.box{
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+
+
+.text{
+  color: rgb(153, 84, 52);
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight:bold;
+  font-size: 45px;
+  text-align: center;
+  animation: bounce-in 1s ease;
+}
+
+.stars{
+  width: 130px;
+  height: 130px;
+  animation: bounce-in 1s ease;
+}
+
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% { transform: scale(.9); }
+  100% { transform: scale(1);}
+   
+}

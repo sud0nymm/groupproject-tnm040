@@ -1,21 +1,30 @@
-import { useState } from 'react'
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './componentStyles.css'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
+import './Ratingstyle.css'
 import { useParams } from 'react-router-dom';
 
-
-function RatingPage(){
+function RatingPage() {
 
     const { id } = useParams();
-    const staramount = id;
+    const staramount = parseInt(id, 10);
     console.log(staramount);// is the amount of stars the user got, sent in by the URL
 
-    //sndfgjikliwrhjgoäiewrhjngoirehgtiåpuow4rugbhiögwhuip
+    function stars() {
+        const starsArray = new Array(staramount).fill(1);
+        const rating = starsArray.map((element, i) => < img className='stars' src={"../star.svg"} key={i} alt="Girl in a jacket" />)
+        return rating;
+    }
 
     return (
-       <> <div> <p> Rating Page </p> </div>
-        <p></p>
+        <> <div className='sliding-background'>
+            <Link to="/"> <button className='replaybutton'></button></Link>
+            <div className='box'>
+                <div className='text'>You got {staramount} out of 3 stars</div>
+                <div className='flex'>{stars()}</div>
+            </div>
+
+        </div>
         </>
     )
 }
