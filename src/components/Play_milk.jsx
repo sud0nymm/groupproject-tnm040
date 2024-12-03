@@ -11,9 +11,9 @@ function Play_milk() {
 
     return (
         <div> 
-            <img src="../public/cloud.png" alt="Cloud" className="cloud11" />
-            <img src="../public/cloud.png" alt="Cloud" className="cloud22" />
-            <img src="../public/cloud.png" alt="Cloud" className="cloud33" />
+            <img src="cloud.png" alt="Cloud" className="cloud11" />
+            <img src="cloud.png" alt="Cloud" className="cloud22" />
+            <img src="cloud.png" alt="Cloud" className="cloud33" />
             <ThreeBoxes/> 
         </div>
 
@@ -21,20 +21,27 @@ function Play_milk() {
 }
 
 function ThreeBoxes(){
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleStartAnimation = () => {
+    setIsAnimating(true);
+  }
+
+  const handleStopAnimation = () => {
+    setIsAnimating(false);
+  }
 
     return (
         <div className='container'>
           <div className='milk-machine'>
             <div className='milk-buttons-box'>
-              <Holdable_box className="milk-button" imgsrc= {"Cow-btn.svg"}/>
-              <Holdable_box className="milk-button" imgsrc= {"Almond-btn.svg"}/>
-              <Holdable_box className="milk-button" imgsrc= {"Coco-btn.svg"}/>
+              <Holdable_box className="milk-button" imgsrc= {"Cow-btn.svg"} onStart={handleStartAnimation} onStop={handleStopAnimation}/>
+              <Holdable_box className="milk-button" imgsrc= {"Almond-btn.svg"} onStart={handleStartAnimation} onStop={handleStopAnimation}/>
+              <Holdable_box className="milk-button" imgsrc= {"Coco-btn.svg"} onStart={handleStartAnimation} onStop={handleStopAnimation}/>
             </div>
             <div className='milkmug'>
               <div className='fillAnimationContainer'>
-                <div className='fillAnimation'>
-
-                </div>
+                <Animated_Box isAnimating={isAnimating} />
               </div> 
             </div>
           </div>
@@ -43,7 +50,13 @@ function ThreeBoxes(){
     
 }
 
-function Holdable_box({imgsrc}) {
+function Animated_Box({isAnimating}) {
+  return (
+    <div className={`fillAnimationBox ${isAnimating ? 'fillAnimation' : 'fillAnimationPaused'}`}/>
+  )
+}
+
+function Holdable_box({imgsrc, onStart, onStop}) {
 
     const [isHolding, setIsHolding] = useState(false);
     const [hasClicked, setHasClicked] = useState(false);
@@ -62,6 +75,7 @@ function Holdable_box({imgsrc}) {
         ratingsystem(imgsrc);
         setHasClicked(true);
         setIsHolding(true); // start holding
+        if (onStart) onStart();
         //console.log("holding...");
         isHoldingRef.current = true;
 
@@ -69,6 +83,7 @@ function Holdable_box({imgsrc}) {
     
     const handleMouseUp = () => { // release holding
         setIsHolding(false);
+        if (onStop) onStop();
         isHoldingRef.current = false;
         setTimeout(() => { // timer that later redirects the page to the ratingpage, with dynamic url
             
@@ -85,7 +100,7 @@ function Holdable_box({imgsrc}) {
     };
 
     return (
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        <div className='milk-button-pour-box'
             onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}
             onTouchStart={handleMouseDown} onTouchEnd={handleMouseUp}
             > {/* handles holding on the div */}
@@ -98,12 +113,7 @@ function Holdable_box({imgsrc}) {
             </div>
 
             <div className='pourAnimationContainer'> 
-                {isHolding && (
-                <img className='animationBox'
-                    src="cat.gif" // This could be any image
-                    alt="Held Image"
-                />
-            )} 
+                <div className={`pourAnimationBox ${isHolding ? 'pourAnimation' : 'pourAnimationDrop'}`}/>
             </div>
 
         </div>
