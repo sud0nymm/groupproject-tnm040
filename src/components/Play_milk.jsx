@@ -11,9 +11,9 @@ function Play_milk() {
 
     return (
         <div> 
-            <img src="cloud.png" alt="Cloud" className="cloud11" />
-            <img src="cloud.png" alt="Cloud" className="cloud22" />
-            <img src="cloud.png" alt="Cloud" className="cloud33" />
+            <img src="../public/cloud.png" alt="Cloud" className="cloud11" />
+            <img src="../public/cloud.png" alt="Cloud" className="cloud22" />
+            <img src="../public/cloud.png" alt="Cloud" className="cloud33" />
             <ThreeBoxes/> 
         </div>
 
