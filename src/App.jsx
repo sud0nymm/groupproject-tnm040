@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Draggable from 'react-draggable';
 import { DraggableCore } from 'react-draggable';
-import { BrowserRouter, Routes, Route, useParams, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams, Link, useNavigate } from 'react-router-dom';
 import Serving from './components/Serving.jsx';
 import RatingPage from './components/RatingPage.jsx';
 import Play_milk from './components/Play_milk.jsx';
@@ -39,7 +39,19 @@ function App() {
 
 
 function StartPage() {
-  
+  const [isAnimating, setIsAnimating] = useState(false);
+  const navigate = useNavigate(); // För programmatisk navigering
+
+  const handleLinkClick = (event) => {
+
+    // Starta animationen
+    setIsAnimating(true);
+
+    // Navigera till "/play" efter animationen är klar (4 sekunder)
+    setTimeout(() => {
+      navigate("/playmilk"); // Programmatisk navigering
+    }, 2000); // Matchar animationens längd
+  };
   const [showPopup, setShowPopup] = useState(false);
   const togglePopup = () => {
     setShowPopup(!showPopup);      
@@ -48,7 +60,13 @@ function StartPage() {
   return (
     <>
       <div className='sliding-background'>
-        <Link to="/playmilk"> <button className='button'></button></Link>
+        {}
+      <img src="../public/cloud.png" alt="Cloud" className={`cloud1 ${isAnimating ? 'animate' : ''}`} />
+      <img src="../public/cloud.png" alt="Cloud" className={`cloud2 ${isAnimating ? 'animate' : ''}`} />
+      <img src="../public/cloud.png" alt="Cloud" className={`cloud3 ${isAnimating ? 'animate' : ''}`} />
+      <Link onClick={handleLinkClick}>
+        <button className="button"></button>
+      </Link>
         <button id='close-button' onClick={togglePopup} >X</button>
         {showPopup &&(
           <>
