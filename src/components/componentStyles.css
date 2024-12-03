@@ -187,3 +187,14 @@
   height: 65vh; /* justify as needed to increase height of deserts from floor*/
   justify-content: flex-end;
 }
+.orderbox{
+  background: url("../order.svg") no-repeat;
+  background-size: 100%;
+  position: fixed;
+  bottom: 30px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  width: 210px; /* Adjust size */
+  height: 120px; /* Adjust size */
+  background-size: cover;
+}

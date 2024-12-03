@@ -18,7 +18,7 @@ function RatingPage() {
 
     return (
         <> <div className='sliding-background'>
-            <Link to="/"> <button className='replaybutton'></button></Link>
+            <Link to="/"> <button className="replaybutton"></button></Link>
             <div className='box'>
                 <div className='text'>You got {staramount} out of 3 stars</div>
                 <div className='flex'>{stars()}</div>
