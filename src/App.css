@@ -35,11 +35,11 @@ body{
   background: url("../Button.svg") no-repeat;
   background-size: 50%;
   position: fixed;
-  bottom: 20px; /* Adjust as needed */
+  bottom: 20px; 
   left: 50%;
   transform: translateX(-50%); /* Center horizontally */
-  width: 50px; /* Adjust size */
-  height: 50px; /* Adjust size */
+  width: 100px; /* Adjust size */
+  height: 100px; /* Adjust size */
   background-size: cover;
 
 }
