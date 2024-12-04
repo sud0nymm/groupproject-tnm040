@@ -14,7 +14,7 @@ import Draggable from 'react-draggable';
 a dynamic wait time depending on the amount of coffe (make a volume of coffee bar later) and
 then a fixed wait after the end of animation, then reroute to serving  */
 
-function Play_coffe() {
+function Play_coffee() {
     
     //useparams must be here
 
@@ -31,8 +31,13 @@ function Play_coffe() {
 
 function ThreeBoxes(){ // star amountfrom link
 
+    const [animationStarted, setAnimationStarted] = useState(false);
     const [volume, setVolume] = useState(1);
     const navigate = useNavigate();
+
+    const handleStartAnimation = () => {
+      setAnimationStarted(true);
+    }
 
     return (
         //"Beacon_JE6_BE2.png"          // CHANGE THE IMAGES FOR THIS ONE!!!!!! to beans
@@ -44,18 +49,31 @@ function ThreeBoxes(){ // star amountfrom link
                     <div className='coffeebar'>
                         <Draggableitem currentV = {volume} setV ={setVolume}/> 
                     </div>    
-                </div>            
+                </div>   
+
                 <div className='coffee-buttons-box'>
-                    <Pressable_box className="milk-button" currentV = {volume} navigate={navigate} />
+                    <Pressable_box className="milk-button" currentV = {volume} navigate={navigate} onStart={handleStartAnimation} />
                 </div>
-            </div>      
+            </div>   
+
+            <div className='coffeeMug'>
+                <div className='fillAnimationContainer'>
+                    <Animated_Box /*currentV = {volume}*/ animationStarted={animationStarted} />
+                </div>
+            </div>
           </div>
         </div>
     )
     
 }
 
-function Pressable_box ({currentV, navigate}) {
+function Animated_Box({animationStarted}) {
+  return (
+    <div className={`coffeeFillAnimationBox ${animationStarted ? 'coffeeFillAnimation' : ''}`} /*style={{maxHeight: ((currentV*100)/2) + 'px'}}*/ />
+  )
+}
+
+function Pressable_box ({currentV, navigate, onStart}) {
 
     const [hasPressed, setHasPressed] = useState(false);
 
@@ -66,6 +84,7 @@ function Pressable_box ({currentV, navigate}) {
         // after timer go to serving.jsx
 
         setHasPressed(true);
+        if(onStart) onStart();
         console.log(currentV);
         let staramount = 0;
         
@@ -86,7 +105,7 @@ function Pressable_box ({currentV, navigate}) {
 
 
     return (
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
             onClick={handlePress} onTouchStart={handlePress}
             > {/* handles holding on the div */}
 
@@ -95,16 +114,13 @@ function Pressable_box ({currentV, navigate}) {
                     src= "/Coffeebean1-btn.svg"
                     alt = "coffee bean"
                     width= "70px" //widht and height?
+                    height= "70px"
                 />
             </div>
 
-            <div> 
-            {hasPressed && ( 
-                <img className='animationBox'
-                    src="/cat.gif" // This could be any image
-                    alt="Held Image" 
-                />
-            )} </div>
+            <div className='coffeePourAnimationContainer'> 
+                <div className={`coffeePourAnimationBox  ${hasPressed ? 'coffeePourAnimation' : ''}`}/>
+            </div>
             
 
         </div>
@@ -158,4 +174,4 @@ function Draggableitem ({currentV, setV}) {
     );
 };
 
-export default Play_coffe;
+export default Play_coffee;

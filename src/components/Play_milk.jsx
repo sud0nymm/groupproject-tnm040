@@ -103,8 +103,8 @@ function Holdable_box({imgsrc, onStart, onStop, stars}) {
 
     return (
         <div className='milk-button-pour-box'
-            onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}
-            onTouchStart={handleMouseDown} onTouchEnd={handleMouseUp}
+            onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} /* onMouseLeave={handleMouseUp}
+            onTouchStart={handleMouseDown} onTouchEnd={handleMouseUp} Triggrar navigate till serving om man hoverar */
             > {/* handles holding on the div */}
 
             <div className="milk-button">

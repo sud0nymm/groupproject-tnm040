@@ -7,9 +7,7 @@
 <rect x="49" y="668" width="15" height="15" rx="5" fill="#505050"/>
 <rect y="600" width="360" height="76" rx="5" fill="#757575"/>
 <rect x="24" y="600" width="312" height="76" rx="5" fill="#888888"/>
-<rect x="79" y="141" width="46.6347" height="36.0359" rx="5" fill="#707070"/>
-<rect x="157" y="141" width="46.6347" height="36.0359" rx="5" fill="#707070"/>
-<rect x="235" y="141" width="46.6347" height="36.0359" rx="5" fill="#707070"/>
+<rect x="147" y="141" width="46.6347" height="36.0359" rx="5" fill="#707070"/>
 <rect x="28" width="303.126" height="153.683" rx="5" fill="#878787"/>
 <rect x="47.0779" y="16.9581" width="264.97" height="129.305" rx="5" fill="#ABABAB"/>
 <rect x="28" width="303.126" height="23.3174" rx="5" fill="#969696"/>
