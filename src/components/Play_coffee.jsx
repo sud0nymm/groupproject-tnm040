@@ -17,20 +17,22 @@ then a fixed wait after the end of animation, then reroute to serving  */
 function Play_coffe() {
     
     //useparams must be here
-    const { id } = useParams();
-    const staramount = id; 
 
     return (
         <div> 
-            <ThreeBoxes stars= { staramount }/>
+            <img src="../public/cloud.png" alt="Cloud" className="cloud11" />
+            <img src="../public/cloud.png" alt="Cloud" className="cloud22" />
+            <img src="../public/cloud.png" alt="Cloud" className="cloud33" />
+            <ThreeBoxes/>
         </div>
 
     )
 }
 
-function ThreeBoxes({stars}){ // star amountfrom link
+function ThreeBoxes(){ // star amountfrom link
 
-    //console.log(stars)
+    const [volume, setVolume] = useState(1);
+    const navigate = useNavigate();
 
     return (
         //"Beacon_JE6_BE2.png"          // CHANGE THE IMAGES FOR THIS ONE!!!!!! to beans
@@ -38,11 +40,13 @@ function ThreeBoxes({stars}){ // star amountfrom link
           <div className='coffee-machine'>  
             <div className='coffeebox'>
                 <div className='coffeebox2'>
-                    <img src="/testBox.png" />           
-                    <CoffeBar/> 
+                    <img src="/testBox.png" />     
+                    <div className='coffeebar'>
+                        <Draggableitem currentV = {volume} setV ={setVolume}/> 
+                    </div>    
                 </div>            
                 <div className='coffee-buttons-box'>
-                    <Pressable_box className="milk-button" imgsrc= {"/Coffeebean1-btn.svg"}/>
+                    <Pressable_box className="milk-button" currentV = {volume} navigate={navigate} />
                 </div>
             </div>      
           </div>
@@ -51,7 +55,7 @@ function ThreeBoxes({stars}){ // star amountfrom link
     
 }
 
-function Pressable_box ({imgsrc, currentstars}) {
+function Pressable_box ({currentV, navigate}) {
 
     const [hasPressed, setHasPressed] = useState(false);
 
@@ -62,9 +66,24 @@ function Pressable_box ({imgsrc, currentstars}) {
         // after timer go to serving.jsx
 
         setHasPressed(true);
-        ratingsystem(imgsrc, currentstars); // can also reroute here
+        console.log(currentV);
+        let staramount = 0;
+        
+        if (currentV === 2){
+            staramount += 1;
+        }
+    
+        setTimeout(() => { // timer that later redirects the page to the ratingpage, with dynamic url
+                
+            console.log("after press?")
+            navigate(`/playmilk/${ staramount }`);
+    
+        }, 2000);
+    
+        //ratingsystem(currentV, staramount); // can also reroute here
         
     };
+
 
     return (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
@@ -73,7 +92,7 @@ function Pressable_box ({imgsrc, currentstars}) {
 
             <div className="milk-button">
                 <img
-                    src={imgsrc} 
+                    src= "/Coffeebean1-btn.svg"
                     alt = "coffee bean"
                     width= "70px" //widht and height?
                 />
@@ -92,36 +111,28 @@ function Pressable_box ({imgsrc, currentstars}) {
     )
 }
 
-function CoffeBar(){
-    return (
-    <div className='coffeebar'>
-        <Draggableitem/> 
-    </div>
-        
-    )
-}
-
-const Draggableitem = () => {
+function Draggableitem ({currentV, setV}) {
     const [xPosition, setXPosition] = useState(10);
 
     const snappos = (e, data) => {
-        console.log("Current X position:", data.x);
+        //console.log("Current X position:", data.x);
 
         if(data.x < 37){
             data.x = 50;
-            console.log("70")
             setXPosition(10)
+            setV(1);
         } 
         else if(data.x < 100){
-            console.log("140")
             setXPosition(72)
+            setV(2);
         }
         else {
-            console.log("else")
             setXPosition(140)
+            setV(3);
         }
-    };
 
+    };
+    
     return (
         <Draggable 
             onStop={snappos}
@@ -146,20 +157,5 @@ const Draggableitem = () => {
         </Draggable>
     );
 };
-
-function ratingsystem(imgsrc, currentstars){ // rating system rates user, then send them to the serving.jsx
-
-
-    //console.log(currentstars);
-    //console.log(imgsrc);
-
-    setTimeout(() => { // timer that later redirects the page to the ratingpage, with dynamic url
-            
-        console.log("after press?")
-
-    }, 2000);
-
-
-}
 
 export default Play_coffe;

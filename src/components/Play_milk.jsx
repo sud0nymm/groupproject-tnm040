@@ -2,33 +2,30 @@ import { useRef, useState } from 'react'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './componentStyles.css'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-
-let stars = 0;
 
 function Play_milk() {
 
+    const stars = useParams();
+
     return (
         <div> 
-            <img src="../public/cloud.png" alt="Cloud" className="cloud11" />
-            <img src="../public/cloud.png" alt="Cloud" className="cloud22" />
-            <img src="../public/cloud.png" alt="Cloud" className="cloud33" />
-            <ThreeBoxes/> 
+            <ThreeBoxes stars = {stars}/> 
         </div>
 
     )
 }
 
-function ThreeBoxes(){
+function ThreeBoxes({stars}){
 
     return (
         <div className='container'>
           <div className='milk-machine'>
             <div className='milk-buttons-box'>
-              <Holdable_box className="milk-button" imgsrc= {"Cow-btn.svg"}/>
-              <Holdable_box className="milk-button" imgsrc= {"Almond-btn.svg"}/>
-              <Holdable_box className="milk-button" imgsrc= {"Coco-btn.svg"}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Cow-btn.svg"} stars = {stars}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Almond-btn.svg"} stars = {stars}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Coco-btn.svg"} stars = {stars}/>
             </div>
             <div className='milkmug'>
               <div className='fillAnimationContainer'>
@@ -43,7 +40,11 @@ function ThreeBoxes(){
     
 }
 
-function Holdable_box({imgsrc}) {
+function Holdable_box({imgsrc, stars}) {
+
+    stars = parseInt(stars.id)
+    console.log(parseInt(stars));
+
 
     const [isHolding, setIsHolding] = useState(false);
     const [hasClicked, setHasClicked] = useState(false);
@@ -59,7 +60,7 @@ function Holdable_box({imgsrc}) {
     },[isHolding, hasClicked] )
 
     const handleMouseDown = () => {
-        ratingsystem(imgsrc);
+        ratingsystem(imgsrc, stars);
         setHasClicked(true);
         setIsHolding(true); // start holding
         //console.log("holding...");
@@ -74,7 +75,8 @@ function Holdable_box({imgsrc}) {
             
             if(!isHoldingRef.current){
                 console.log("delay over");
-                //navigate(`/playcoffee/${ratingsystem()}`);
+                console.log(imgsrc)
+                navigate(`/serving/${ratingsystem(imgsrc, stars)}`);
                 // go to Play COFFEE NEXT!!
             } else {
                 console.log("button held")
@@ -110,9 +112,21 @@ function Holdable_box({imgsrc}) {
     )
 }
 
-function ratingsystem(imgsrc){
-    let staramount = 2; // change to do shit blehhhh
-    console.log(imgsrc);
+function ratingsystem(imgsrc, staramount){
+
+    console.log(staramount);
+
+
+    if (imgsrc == "/Cow-btn.svg"){
+        console.log("here");
+        staramount += 1;
+        console.log(staramount);
+    } else {
+        console.log("but but here")
+        staramount += 0;
+        console.log(staramount);
+
+    }
 
     return staramount;
 }

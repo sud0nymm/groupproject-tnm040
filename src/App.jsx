@@ -22,11 +22,11 @@ function App() {
           
           <Route path="" element={ <StartPage /> }  /> {/* START PAGE */}
         
-          <Route path="/playmilk" element={<Play_milk />} />  {/* Play milk */}
+          <Route path="/playmilk/:id" element={<Play_milk />} />  {/* Play milk */}
 
-          <Route path="/playcoffee/:id" element={<Play_coffe />} />  {/* PLay coffee */}
+          <Route path="/playcoffee" element={<Play_coffe />} />  {/* PLay coffee */}
 
-          <Route path="/serving" element={<Serving />} />  {/* Serving page (change name?) */}
+          <Route path="/serving/:id" element={<Serving />} />  {/* Serving page (change name?) */}
 
           <Route path="/ratingpage/:id" element={<RatingPage />} /> { /* ROUTING PAGE, ID IS THE SCORE*/ }
         </Routes>
@@ -49,7 +49,7 @@ function StartPage() {
 
     // Navigera till "/play" efter animationen är klar (4 sekunder)
     setTimeout(() => {
-      navigate("/playmilk"); // Programmatisk navigering
+      navigate("/playcoffee"); // Programmatisk navigering
     }, 2000); // Matchar animationens längd
   };
   const [showPopup, setShowPopup] = useState(false);

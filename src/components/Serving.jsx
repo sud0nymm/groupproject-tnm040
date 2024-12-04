@@ -14,12 +14,12 @@ function Serving() {
     <div className='full'>
       <div className='desertholder'>
         <div className='desertshelf'>
-          <DraggableBox imgsrc={"Beacon_JE6_BE2.png"}> </DraggableBox>
-          <DraggableBox imgsrc={"Beacon_JE6_BE2.png"}> </DraggableBox>
+          <DraggableBox imgsrc={"/Beacon_JE6_BE2.png"}> </DraggableBox>
+          <DraggableBox imgsrc={"/Beacon_JE6_BE2.png"}> </DraggableBox>
         </div>
         <div className='desertshelf'>
-          <DraggableBox imgsrc={"Beacon_JE6_BE2.png"}> </DraggableBox>
-          <DraggableBox imgsrc={"Beacon_JE6_BE2.png"}> </DraggableBox>
+          <DraggableBox imgsrc={"/Beacon_JE6_BE2.png"}> </DraggableBox>
+          <DraggableBox imgsrc={"/Beacon_JE6_BE2.png"}> </DraggableBox>
         </div>
       </div>
     </div>
