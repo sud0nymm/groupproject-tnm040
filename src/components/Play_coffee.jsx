@@ -117,12 +117,12 @@ function Draggableitem ({currentV, setV}) {
     const snappos = (e, data) => {
         //console.log("Current X position:", data.x);
 
-        if(data.x < 37){
+        if(data.x < 40){
             data.x = 50;
             setXPosition(10)
             setV(1);
         } 
-        else if(data.x < 100){
+        else if(data.x < 109){
             setXPosition(72)
             setV(2);
         }
@@ -138,7 +138,7 @@ function Draggableitem ({currentV, setV}) {
             onStop={snappos}
             axis="x" // Restricts dragging vertically
             position={{ x: xPosition, y: 0 }} // Controlled position
-            bounds={{left: 10, right: 210}}
+            bounds={{left: 10, right: 140}}
         >
             <div
                 style={{
