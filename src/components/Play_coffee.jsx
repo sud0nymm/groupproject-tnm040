@@ -53,9 +53,14 @@ function ThreeBoxes(){ // star amountfrom link
                     </div>    
                 </div>            
                 <div className='coffee-buttons-box'>
-                    <Pressable_box className="milk-button" currentV = {volume} navigate={navigate} setIsAnimating={setIsAnimating} />
+                    <Pressable_box className="milk-button" currentV = {volume} navigate={navigate} setIsAnimating={setIsAnimating} onStart={handleStartAnimation} />
                 </div>
-            </div>      
+            </div>     
+            <div className='coffeeMug'>
+                <div className='fillAnimationContainer'>
+                    <Animated_Box /*currentV = {volume}*/ animationStarted={animationStarted} />
+                </div>
+            </div>
           </div>
         </div>
     )
