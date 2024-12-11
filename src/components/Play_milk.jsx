@@ -107,7 +107,7 @@ function Holdable_box({imgsrc, onStart, onStop, stars}) {
             onTouchStart={handleMouseDown} onTouchEnd={handleMouseUp} Triggrar navigate till serving om man hoverar */
             > {/* handles holding on the div */}
 
-            <div className="milk-button">
+            <div className={`milk-button ${isHolding ? 'buttonPressAnim' : ''}`}>
                 <img
                     src={imgsrc} 
                     alt = "Holdable Item"

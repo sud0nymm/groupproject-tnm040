@@ -109,7 +109,7 @@ function Pressable_box ({currentV, navigate, onStart}) {
             onClick={handlePress} onTouchStart={handlePress}
             > {/* handles holding on the div */}
 
-            <div className="milk-button">
+            <div className={`milk-button ${hasPressed ? 'coffeeButtonPressAnim' : ''}`}>
                 <img
                     src= "/Pourcoffee.svg"
                     alt = "coffee bean"
