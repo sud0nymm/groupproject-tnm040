@@ -33,9 +33,9 @@ function ThreeBoxes({stars}){
         <div className='container'>
           <div className='milk-machine'>
             <div className='milk-buttons-box'>
-              <Holdable_box className="milk-button" imgsrc= {"/Cow-btn.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation}/>
-              <Holdable_box className="milk-button" imgsrc= {"/Almond-btn.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation}/>
-              <Holdable_box className="milk-button" imgsrc= {"/Coco-btn.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Cow.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Almond.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Coco.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation}/>
             </div>
             <div className='milkmug'>
               <div className='fillAnimationContainer'>
