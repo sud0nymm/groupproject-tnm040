@@ -12,15 +12,11 @@ function Serving() {
 
   return (
     <div className='full'>
-      <div className='desertholder'>
-        <div className='desertshelf'>
-          <DraggableBox imgsrc={"/Beacon_JE6_BE2.png"}> </DraggableBox>
-          <DraggableBox imgsrc={"/Beacon_JE6_BE2.png"}> </DraggableBox>
-        </div>
-        <div className='desertshelf'>
-          <DraggableBox imgsrc={"/Beacon_JE6_BE2.png"}> </DraggableBox>
-          <DraggableBox imgsrc={"/Beacon_JE6_BE2.png"}> </DraggableBox>
-        </div>
+      <div className='desertshelf'>
+        <DraggableBox imgsrc={"/Kanelbulle.svg"}> </DraggableBox>
+        <DraggableBox imgsrc={"/Kladdkaka.svg"}> </DraggableBox>
+        <DraggableBox imgsrc={"/Muffin.svg"}> </DraggableBox>
+        <DraggableBox imgsrc={"/Cookie.svg"}> </DraggableBox>
       </div>
     </div>
   )
@@ -57,16 +53,16 @@ function DraggableBox({imgsrc}) {
 
   return (
 
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div className='desertbox'>
       <Draggable 
       onStop={handleStop}
       position={position} 
       >
-        <div className="testbox" style={{ padding: '10px', backgroundColor: 'lightblue', cursor: 'move' }}>
+        <div className="testbox" style={{ cursor: 'move' }}>
           <img 
           src = {imgsrc} 
           alt = "Drag this"
-          style={{ width: '70px', height: '70px' }}
+          style={{ width: '70px' }}
           onDragStart={handleDragStart}
           />
         </div>
