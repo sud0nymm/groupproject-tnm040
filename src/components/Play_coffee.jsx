@@ -20,6 +20,7 @@ function Play_coffee() {
 
     return (
         <div> 
+            <div className='orderbox'/>
             <img src="../public/cloud.png" alt="Cloud" className="cloud11" />
             <img src="../public/cloud.png" alt="Cloud" className="cloud22" />
             <img src="../public/cloud.png" alt="Cloud" className="cloud33" />

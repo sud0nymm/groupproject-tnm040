@@ -5,56 +5,64 @@ import Draggable from 'react-draggable';
 import './componentStyles.css'
 import { useNavigate, useParams } from 'react-router-dom';
 
-// global var for rating
-let stars = 0;
-
 function Serving() {
 
+  let stars = useParams();
+
   return (
-    <div className='full'>
-      <div className='desertshelf'>
-        <DraggableBox imgsrc={"/Kanelbulle.svg"}> </DraggableBox>
-        <DraggableBox imgsrc={"/Kladdkaka.svg"}> </DraggableBox>
-        <DraggableBox imgsrc={"/Muffin.svg"}> </DraggableBox>
-        <DraggableBox imgsrc={"/Cookie.svg"}> </DraggableBox>
+    <div className='servingbackground'>
+      <div className='full'>
+        <div className='orderbox2' />
+        <div className='desertshelf'>
+          <DraggableBox imgsrc={"/Kanelbulle.svg"} stars = {stars.id}> </DraggableBox>
+          <DraggableBox imgsrc={"/Kladdkaka.svg"} stars = {stars.id}> </DraggableBox>
+          <DraggableBox imgsrc={"/Muffin.svg"} stars = {stars.id}> </DraggableBox>
+          <DraggableBox imgsrc={"/Cookie.svg"} stars = {stars.id}> </DraggableBox>
+        </div>
       </div>
     </div>
   )
 }
 
-function DraggableBox({imgsrc}) {
+function DraggableBox({imgsrc, stars}) {
+
+  let staramount = parseInt(stars, 10);
 
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [test1, setTest1] = useState(false);
-  const [test2, setTest2] = useState(false);
-  const navigate = useNavigate();
+  const [imgWidth, setImgWidth] = useState(70); // state for dynamic width
 
-  if (test1) { //adds amount to stars if condition is met
-    stars += 1; // currently adds 2 stars every time because of "safe mode", ask teacher for clarity later
-    console.log("hej")
-  }
+  const navigate = useNavigate();
   
   const handleDragStart = (e) => { //only for image to be draggable
     e.preventDefault();
   };
 
   const handleStop = (e, data) => { //handles stop of the draggable box
+
+    goalBox(data.x, data.y, setPosition, navigate, staramount);
     console.log("Final position:", { x: data.x, y: data.y });
-    goalBox(data.x, data.y, setPosition, navigate);
 
-    console.log(imgsrc);
-
-    if (imgsrc == "Beacon_JE6_BE2.png"){ // imgsrc is the content that is being dragged
-      setTest1(true); // adds stars once
+    const margin = 50; // px margin
+    const goalx = -30; // final position in x and y for box being dragged
+    const goaly= -150;
+    if(goalx + margin >= data.x && goalx - margin <= data.x && goaly + margin >= data.y && goaly - margin <= data.y){ //checks a range for x and y variables
+      setImgWidth(100);
     } else {
-      setTest1(false);
+      setImgWidth(70);
     }
+
+
+    if (imgsrc == "/Muffin.svg"){ // imgsrc is the content that is being dragged
+      staramount += 1;
+    }
+
   };
 
   return (
 
     <div className='desertbox'>
       <Draggable 
+      onStart={handleDragStart} 
       onStop={handleStop}
       position={position} 
       >
@@ -62,8 +70,8 @@ function DraggableBox({imgsrc}) {
           <img 
           src = {imgsrc} 
           alt = "Drag this"
-          style={{ width: '70px' }}
-          onDragStart={handleDragStart}
+          style={{ width: `${imgWidth}px` }}
+          onDragStart={(e) => e.preventDefault()} // Prevent native drag
           />
         </div>
       </Draggable>
@@ -71,17 +79,16 @@ function DraggableBox({imgsrc}) {
   )
 }
 
-function goalBox(xcurrent, ycurrent, setPosition, navigate) {
+function goalBox(xcurrent, ycurrent, setPosition, navigate, stars) {
 
   const margin = 50; // px margin
-  const goalx = 170; // final position in x and y for box being dragged
-  const goaly= -120;
+  const goalx = -30; // final position in x and y for box being dragged
+  const goaly= -150;
   const snapPosition = {x:goalx, y:goaly};
 
   if(goalx + margin >= xcurrent && goalx - margin <= xcurrent && goaly + margin >= ycurrent && goaly - margin <= ycurrent){ //checks a range for x and y variables
     console.log("in range")
     setPosition(snapPosition); 
-    console.log(stars);
 
     setTimeout(() => { // timer that later redirects the page to the ratingpage, with dynamic url
 

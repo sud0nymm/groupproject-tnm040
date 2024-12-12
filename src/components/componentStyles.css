@@ -224,13 +224,13 @@
 
 .desertshelf{
   min-width: 350px;
-  min-height: 90px; /* change this if needed, max width and height of all deserts together, so 1/4th/ */
+  min-height: 110px; /* change this if needed, max width and height of all deserts together, so 1/4th/ */
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  border:black solid 5px; /*change to white later*/
+  border:rgba(255, 196, 234, 0.9) solid; /*change to white later*/
   border-radius: 25px;
-  background: rgba(86, 107, 211, 0.7); /*change color here too*/
+  background: rgba(255, 196, 234, 0.6); /*change color here too*/
 }
 
 .desertbox{
@@ -244,18 +244,36 @@
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 80vh; /*justify as needed to increase height of deserts from floor*/
+  height: 92vh; /*justify as needed to increase height of deserts from floor*/
   align-items: center;
   justify-content: flex-end;
 }
 .orderbox{
   background: url("../order.svg") no-repeat;
   background-size: 100%;
-  position: fixed;
+  position: absolute;
   bottom: 30px; 
   left: 50%;
   transform: translateX(-50%); /* Center horizontally */
-  width: 210px; /* Adjust size */
+  width: 240px; /* Adjust size */
   height: 120px; /* Adjust size */
   background-size: cover;
+}
+
+.orderbox2{
+  background: url("../order2.svg") no-repeat;
+  background-size: 100%;
+  position: absolute;
+  bottom: 60vh; 
+  left: 20vw;
+  transform: translateX(-50%); /* Center horizontally */
+  width: 137px; /* Adjust size */
+  height: 247px; /* Adjust size */
+  background-size: cover;
+}
+
+.servingbackground{
+  width: 100vw;
+  height: 100vh;
+  background: url("../servingbackground.svg") no-repeat;
 }

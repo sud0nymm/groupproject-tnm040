@@ -11,6 +11,7 @@ function Play_milk() {
 
     return (
         <div> 
+            <div className='orderbox'/>
             <ThreeBoxes stars = {stars}/> 
         </div>
 
@@ -19,7 +20,8 @@ function Play_milk() {
 
 
 function ThreeBoxes({stars}){
-    const [isAnimating, setIsAnimating] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [hasClicked, setHasClicked] = useState(false);
 
   const handleStartAnimation = () => {
     setIsAnimating(true);
@@ -33,9 +35,9 @@ function ThreeBoxes({stars}){
         <div className='container'>
           <div className='milk-machine'>
             <div className='milk-buttons-box'>
-              <Holdable_box className="milk-button" imgsrc= {"/Cow.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation}/>
-              <Holdable_box className="milk-button" imgsrc= {"/Almond.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation}/>
-              <Holdable_box className="milk-button" imgsrc= {"/Coco.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Cow.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Almond.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Coco.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked}/>
             </div>
             <div className='milkmug'>
               <div className='fillAnimationContainer'>
@@ -54,58 +56,42 @@ function Animated_Box({isAnimating}) {
   )
 }
 
-function Holdable_box({imgsrc, onStart, onStop, stars}) {
+function Holdable_box({imgsrc, onStart, onStop, stars, hasClicked, setHasClicked}) {
 
     stars = parseInt(stars.id)
     console.log(stars);
 
     const [isHolding, setIsHolding] = useState(false);
-    const [hasClicked, setHasClicked] = useState(false);
 
     const navigate = useNavigate();
 
-    const isHoldingRef = useRef(false);
-
-    useEffect(() => { 
-        
-        hasClicked == true;
-        return;
-    },[isHolding, hasClicked] )
-
     const handleMouseDown = () => {
         ratingsystem(imgsrc, stars);
-        setHasClicked(true);
         setIsHolding(true); // start holding
         if (onStart) onStart();
-        //console.log("holding...");
-        isHoldingRef.current = true;
-
     };
     
     const handleMouseUp = () => { // release holding
         setIsHolding(false);
         if (onStop) onStop();
-        isHoldingRef.current = false;
+        
+        const theStars = stars;
+        
         setTimeout(() => { // timer that later redirects the page to the ratingpage, with dynamic url
-            
-            if(!isHoldingRef.current){
-                console.log("delay over");
-                console.log(imgsrc)
-                navigate(`/serving/${ratingsystem(imgsrc, stars)}`);
-                // go to Play COFFEE NEXT!!
-            } else {
-                console.log("button held")
-            }
+          console.log("delay over");
+          console.log(imgsrc);
+
+          navigate(`/serving/${ratingsystem(imgsrc, theStars, hasClicked, setHasClicked)}`);
 
         }, 2000);
 
+        setHasClicked(true);
     };
 
     return (
         <div className='milk-button-pour-box'
-            onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} /* onMouseLeave={handleMouseUp}
-            onTouchStart={handleMouseDown} onTouchEnd={handleMouseUp} Triggrar navigate till serving om man hoverar */
-            > {/* handles holding on the div */}
+          onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} 
+            style={{ pointerEvents: hasClicked ? 'none' : 'auto' }}> 
 
             <div className="milk-button">
                 <img
@@ -123,21 +109,13 @@ function Holdable_box({imgsrc, onStart, onStop, stars}) {
 }
 
 function ratingsystem(imgsrc, staramount){
-
+   
+  if (imgsrc == "/Almond.svg") {
+    staramount += 1;
     console.log(staramount);
+  }
 
-
-    if (imgsrc == "/Cow-btn.svg"){
-        console.log("here");
-        staramount += 1;
-        console.log(staramount);
-    } else {
-        console.log("but but here")
-        staramount += 0;
-        console.log(staramount);
-
-    }
-
+    
     return staramount;
 }
 
