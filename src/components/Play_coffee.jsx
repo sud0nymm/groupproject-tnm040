@@ -48,7 +48,7 @@ function ThreeBoxes(){ // star amountfrom link
           <div className={`coffee-machine ${isAnimating ? 'slide2' : ''}`}>  
             <div className='coffeebox'>
                 <div className='coffeebox2'>
-                    <img src="/testBox.png" />     
+                    <img src="/Coffeebar.svg" />     
                     <div className='coffeebar'>
                         <Draggableitem currentV = {volume} setV ={setVolume} /> 
                     </div>    

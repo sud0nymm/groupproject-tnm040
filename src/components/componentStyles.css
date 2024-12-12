@@ -314,3 +314,13 @@
   height: 100vh;
   background: url("../servingbackground.svg") no-repeat;
 }
+
+.goalBox {
+  position: absolute;
+  right: 30.5vw;
+  top: 60vh;
+  min-width: 110px;
+  min-height: 120px;
+  border: 2px dashed #bbbbbb;
+  background-color: rgba(0, 0, 0, 0.1);
+}

@@ -37,9 +37,9 @@ function ThreeBoxes({stars}){
           <img src="../cafe.png" alt="" className={`cafeb2 ${isAnimating2 ? 's3' : ''}`} />
           <div className={`milk-machine ${isAnimating2 ? 's4' : ''}`}>
             <div className='milk-buttons-box'>
-              <Holdable_box className="milk-button" imgsrc= {"/Cow-btn.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked} setIsAnimating2={setIsAnimating2}/>
-              <Holdable_box className="milk-button" imgsrc= {"/Almond-btn.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked} setIsAnimating2={setIsAnimating2}/>
-              <Holdable_box className="milk-button" imgsrc= {"/Coco-btn.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked} setIsAnimating2={setIsAnimating2}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Cow.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked} setIsAnimating2={setIsAnimating2}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Almond.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked} setIsAnimating2={setIsAnimating2}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Coco.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked} setIsAnimating2={setIsAnimating2}/>
             </div>
             <div className='milkmug'>
               <div className='fillAnimationContainer'>
@@ -79,12 +79,15 @@ function Holdable_box({imgsrc, onStart, onStop, stars, hasClicked, setHasClicked
         
         const theStars = stars;
         
-        setIsAnimating2(true);
         setTimeout(() => { // timer that later redirects the page to the ratingpage, with dynamic url
+                
+          setIsAnimating2(true);
+              setTimeout(() => {
+                  console.log("after press?")
+                  navigate(`/serving/${ratingsystem(imgsrc, theStars, hasClicked, setHasClicked)}`);
+                }, 3000);
+          }, 2000);
 
-          navigate(`/serving/${ratingsystem(imgsrc, theStars, hasClicked, setHasClicked)}`);
-
-        }, 2000);
 
         setHasClicked(true);
     };
