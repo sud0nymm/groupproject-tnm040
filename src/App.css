@@ -212,3 +212,54 @@ body{
     left: 100%;
   }
 }
+.cafeb1{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(3px);
+}
+.slide1{
+  animation: transform1 3s ease-out forwards;
+}
+@keyframes transform1{
+  0%{
+    left: 0;
+  }
+  100%{
+    left: -100%;
+  }
+}
+
+.cafeb2{
+  position: fixed;
+  top: 0;
+  left: -150%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(3px);
+}
+.s3{
+  animation: t3 3s ease-out forwards;
+}
+@keyframes t3{
+  0%{
+    left: -150%;
+  }
+  100%{
+    left: -250%;
+  }
+}
+.s4{
+  animation: t4 3s ease-out forwards;
+  position: absolute;
+}
+@keyframes t4 {
+  0%{
+    left: 0%;
+  }
+  100%{
+    left: -100%;
+  }
+}

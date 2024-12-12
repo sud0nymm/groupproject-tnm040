@@ -22,6 +22,7 @@ function Play_milk() {
 function ThreeBoxes({stars}){
   const [isAnimating, setIsAnimating] = useState(false);
   const [hasClicked, setHasClicked] = useState(false);
+    const [isAnimating2, setIsAnimating2] = useState(false);
 
   const handleStartAnimation = () => {
     setIsAnimating(true);
@@ -33,11 +34,12 @@ function ThreeBoxes({stars}){
 
     return (
         <div className='container'>
-          <div className='milk-machine'>
+          <img src="../cafe.png" alt="" className={`cafeb2 ${isAnimating2 ? 's3' : ''}`} />
+          <div className={`milk-machine ${isAnimating2 ? 's4' : ''}`}>
             <div className='milk-buttons-box'>
-              <Holdable_box className="milk-button" imgsrc= {"/Cow.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked}/>
-              <Holdable_box className="milk-button" imgsrc= {"/Almond.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked}/>
-              <Holdable_box className="milk-button" imgsrc= {"/Coco.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Cow-btn.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked} setIsAnimating2={setIsAnimating2}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Almond-btn.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked} setIsAnimating2={setIsAnimating2}/>
+              <Holdable_box className="milk-button" imgsrc= {"/Coco-btn.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked} setIsAnimating2={setIsAnimating2}/>
             </div>
             <div className='milkmug'>
               <div className='fillAnimationContainer'>
@@ -56,7 +58,7 @@ function Animated_Box({isAnimating}) {
   )
 }
 
-function Holdable_box({imgsrc, onStart, onStop, stars, hasClicked, setHasClicked}) {
+function Holdable_box({imgsrc, onStart, onStop, stars, hasClicked, setHasClicked, setIsAnimating2}) {
 
     stars = parseInt(stars.id)
     console.log(stars);
@@ -77,9 +79,8 @@ function Holdable_box({imgsrc, onStart, onStop, stars, hasClicked, setHasClicked
         
         const theStars = stars;
         
+        setIsAnimating2(true);
         setTimeout(() => { // timer that later redirects the page to the ratingpage, with dynamic url
-          console.log("delay over");
-          console.log(imgsrc);
 
           navigate(`/serving/${ratingsystem(imgsrc, theStars, hasClicked, setHasClicked)}`);
 
@@ -93,7 +94,7 @@ function Holdable_box({imgsrc, onStart, onStop, stars, hasClicked, setHasClicked
           onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} 
             style={{ pointerEvents: hasClicked ? 'none' : 'auto' }}> 
 
-            <div className="milk-button">
+            <div className={`milk-button ${isHolding ? 'buttonPressAnim' : ''}`}>
                 <img
                     src={imgsrc} 
                     alt = "Holdable Item"

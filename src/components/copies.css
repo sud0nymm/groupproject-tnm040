@@ -1,0 +1,16 @@
+.mm1{
+    position: fixed;
+    left: 200%;
+    margin-bottom: 80px;
+}
+.slidem{
+    animation: transform3 3s ease-out forwards;
+}
+@keyframes transform3{
+    0%{
+      left: 200%;
+    }
+    100%{
+      left: 10%;
+    }
+  }
