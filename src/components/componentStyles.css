@@ -32,12 +32,13 @@
   justify-content: center;
   margin-left: 4px;
   margin-right: 4px;
-  
+  z-index: 4;
 }
 
 .pourAnimationContainer {
   position: absolute;
   margin-top: 163px;
+  z-index: 5;
 }
 .pourAnimationBox{
   position: absolute;
@@ -70,6 +71,7 @@
   height: 358px;
   width: 262px;
   margin-top: 110px;
+  z-index: 1;
 }
 .fillAnimationContainer {
   display: flex;
@@ -78,6 +80,7 @@
   height: 358px;
   width: 262px;
   clip-path: polygon(5% 0, 95% 0, 85% 96%, 15% 96%);
+  z-index: 4;
 }
 .fillAnimationBox {
   /* background: url("milkFillAnim.svg") repeat; */
@@ -115,6 +118,7 @@
   width: 70px;
   height: 70px;
   transition: 0.5s ease;
+  z-index: 5;
 }
 .buttonPressAnim {
   scale: 0.9;
@@ -155,7 +159,8 @@
   z-index: 10;
   margin-bottom: 80px;
   position: fixed;
-  left: 10;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .slide2{
@@ -163,11 +168,10 @@
 }
 @keyframes transform2{
   0%{
-    left: 0;
+    left: 50%;
   }
   100%{
     left: -150%;
-    display: none;
   }
 }
 
@@ -256,14 +260,20 @@
 }
 
 .desertshelf{
-  min-width: 350px;
-  min-height: 110px; /* change this if needed, max width and height of all deserts together, so 1/4th/ */
+  min-width: 150px;
+  min-height: 350px; /* change this if needed, max width and height of all deserts together, so 1/4th/ */
+  position: absolute;
+  float: left;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
-  border:rgba(255, 196, 234, 0.9) solid; /*change to white later*/
+  justify-self: flex-start;
+  align-self: flex-start;
+  border:rgba(255, 255, 255, 0.9) solid; /*change to white later*/
   border-radius: 25px;
-  background: rgba(255, 196, 234, 0.6); /*change color here too*/
+  background: rgba(255, 196, 234, 0.5); /*change color here too*/
+  z-index: 1;
+  margin-left: 50px;
 }
 
 .desertbox{
@@ -284,13 +294,14 @@
 .orderbox{
   background: url("../order.svg") no-repeat;
   background-size: 100%;
-  position: fixed;
+  position: absolute;
   bottom: 30px; 
   left: 50%;
   transform: translateX(-50%); /* Center horizontally */
   width: 240px; /* Adjust size */
   height: 120px; /* Adjust size */
   background-size: cover;
+  z-index: 1000;
 }
 
 .orderbox2{
@@ -306,18 +317,21 @@
   z-index: 9999;
 }
 
-.servingbackground{
-  width: 100vw;
-  height: 100vh;
-  background: url("../servingbackground.svg") no-repeat;
-}
-
 .goalBox {
   position: absolute;
-  right: 30.5vw;
-  top: 60vh;
-  min-width: 110px;
-  min-height: 120px;
-  border: 2px dashed #bbbbbb;
-  background-color: rgba(0, 0, 0, 0.1);
+  top: 80vh; /* Match the hitbox top */
+  left: 45.5vw; /* Match the hitbox left */
+  width: 110px; /* Match the hitbox width */
+  height: 120px; /* Match the hitbox height */
+  border: 2px dashed #bbbbbb; /* Optional: Visual border for debugging */
+  background-color: rgba(0, 0, 0, 0.1); /* Optional: Semi-transparent background */
+  pointer-events: none; /* Prevent interaction */
+  z-index: 10;
+}
+.full .mug{
+  position: absolute;
+  max-width: 120px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  align-self: flex-end;
 }
