@@ -260,7 +260,7 @@
 }
 
 .desertshelf{
-  min-width: 150px;
+  min-width: 25vw;
   min-height: 350px; /* change this if needed, max width and height of all deserts together, so 1/4th/ */
   position: absolute;
   float: left;
@@ -273,7 +273,7 @@
   border-radius: 25px;
   background: rgba(255, 196, 234, 0.5); /*change color here too*/
   z-index: 1;
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 .desertbox{
@@ -330,7 +330,7 @@
 }
 .full .mug{
   position: absolute;
-  max-width: 120px;
+  max-width: 20vw;
   margin-right: 30px;
   margin-bottom: 20px;
   align-self: flex-end;
