@@ -288,7 +288,7 @@
 .orderbox{
   background: url("../order.svg") no-repeat;
   background-size: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 30px; 
   left: 50%;
   transform: translateX(-50%); /* Center horizontally */
@@ -307,6 +307,7 @@
   width: 137px; /* Adjust size */
   height: 247px; /* Adjust size */
   background-size: cover;
+  z-index: 9999;
 }
 
 .servingbackground{

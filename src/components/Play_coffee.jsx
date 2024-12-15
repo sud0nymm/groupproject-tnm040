@@ -21,7 +21,6 @@ function Play_coffee() {
 
     return (
         <div> 
-            <div className='orderbox'/>
             <img src="../public/cloud.png" alt="Cloud" className="cloud11" />
             <img src="../public/cloud.png" alt="Cloud" className="cloud22" />
             <img src="../public/cloud.png" alt="Cloud" className="cloud33" />
@@ -46,6 +45,7 @@ function ThreeBoxes(){ // star amountfrom link
             <img src="../cafe.png" alt="" className={`cafeb1 ${isAnimating ? 'slide1' : ''}`}/>
             <img src="../mmachine.png" alt="" className={`mm1 ${isAnimating ? 'slidem' : ''}`} />
           <div className={`coffee-machine ${isAnimating ? 'slide2' : ''}`}>  
+          <div className='orderbox'/>
             <div className='coffeebox'>
                 <div className='coffeebox2'>
                     <img src="/Coffeebar.svg" />     
@@ -86,7 +86,6 @@ function Pressable_box ({currentV, navigate, onStart, setIsAnimating}) {
 
         setHasPressed(true);
         if(onStart) onStart();
-        console.log(currentV);
         let staramount = 0;
         
         if (currentV === 2){
@@ -97,7 +96,6 @@ function Pressable_box ({currentV, navigate, onStart, setIsAnimating}) {
                 
             setIsAnimating(true);
                 setTimeout(() => {
-                    console.log("after press?")
                     navigate(`/playmilk/${ staramount }`);
                 }, 3000);
         }, 2000);
@@ -134,7 +132,6 @@ function Draggableitem ({currentV, setV}) {
     const [xPosition, setXPosition] = useState(10);
 
     const snappos = (e, data) => {
-        //console.log("Current X position:", data.x);
 
         if(data.x < 40){
             data.x = 50;

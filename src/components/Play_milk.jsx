@@ -11,7 +11,6 @@ function Play_milk() {
 
     return (
         <div> 
-            <div className='orderbox'/>
             <ThreeBoxes stars = {stars}/> 
         </div>
 
@@ -36,6 +35,7 @@ function ThreeBoxes({stars}){
         <div className='container'>
           <img src="../cafe.png" alt="" className={`cafeb2 ${isAnimating2 ? 's3' : ''}`} />
           <div className={`milk-machine ${isAnimating2 ? 's4' : ''}`}>
+          <div className='orderbox'/>
             <div className='milk-buttons-box'>
               <Holdable_box className="milk-button" imgsrc= {"/Cow.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked} setIsAnimating2={setIsAnimating2}/>
               <Holdable_box className="milk-button" imgsrc= {"/Almond.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked} setIsAnimating2={setIsAnimating2}/>
@@ -61,7 +61,6 @@ function Animated_Box({isAnimating}) {
 function Holdable_box({imgsrc, onStart, onStop, stars, hasClicked, setHasClicked, setIsAnimating2}) {
 
     stars = parseInt(stars.id)
-    console.log(stars);
 
     const [isHolding, setIsHolding] = useState(false);
 
@@ -83,7 +82,6 @@ function Holdable_box({imgsrc, onStart, onStop, stars, hasClicked, setHasClicked
                 
           setIsAnimating2(true);
               setTimeout(() => {
-                  console.log("after press?")
                   navigate(`/serving/${ratingsystem(imgsrc, theStars, hasClicked, setHasClicked)}`);
                 }, 3000);
           }, 2000);
@@ -116,9 +114,7 @@ function ratingsystem(imgsrc, staramount){
    
   if (imgsrc == "/Almond.svg") {
     staramount += 1;
-    console.log(staramount);
   }
-
     
     return staramount;
 }
