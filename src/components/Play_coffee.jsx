@@ -130,6 +130,7 @@ function Pressable_box ({currentV, navigate, onStart, setIsAnimating}) {
 
 function Draggableitem ({currentV, setV}) {
     const [xPosition, setXPosition] = useState(10);
+    const dragRef = useRef(null);
 
     const snappos = (e, data) => {
 
@@ -151,12 +152,14 @@ function Draggableitem ({currentV, setV}) {
     
     return (
         <Draggable 
+            nodeRef={dragRef}
             onStop={snappos}
             axis="x" // Restricts dragging vertically
             position={{ x: xPosition, y: 0 }} // Controlled position
             bounds={{left: 10, right: 110}}
         >
             <div
+                ref={dragRef}
                 style={{
                     width: "5%",
                     height: "85%",

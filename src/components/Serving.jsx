@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Draggable from 'react-draggable';
@@ -29,6 +29,7 @@ function Serving() {
 function DraggableBox({imgsrc, stars, setHasSnapped, hasSnapped}) {
 
   let staramount = parseInt(stars, 10);
+  const dragRef = useRef(null);
 
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [imgWidth, setImgWidth] = useState(70); // state for dynamic width
@@ -71,12 +72,15 @@ function DraggableBox({imgsrc, stars, setHasSnapped, hasSnapped}) {
 
     <div className='desertbox'>
       <Draggable 
+      nodeRef={dragRef}
       onStart={handleDragStart} 
       onStop={handleStop}
       position={position}
       disabled={hasSnapped} // Disable dragging if hasSnapped is true
       >
-        <div className="testbox" style={{ cursor: 'move' }}>
+        <div className="testbox" style={{ cursor: 'move' }}
+        ref={dragRef}
+        >
           <img 
           src = {imgsrc} 
           alt = "Drag this"
