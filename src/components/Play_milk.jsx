@@ -12,6 +12,7 @@ function Play_milk() {
     return (
         <div> 
             <ThreeBoxes stars = {stars}/> 
+            
         </div>
 
     )
@@ -33,9 +34,21 @@ function ThreeBoxes({stars}){
 
     return (
         <div className='container'>
+          <div className={`goalBoxTemp ${isAnimating2 ? 'goalBoxTempA' : ''}`}/> 
+          <div className={`fullTemp ${isAnimating2 ? 'fullTempA' : ''}`}>
+          <img src="/mugg.png" alt="" className='mugTemp'/>
+            <div className='orderbox2Temp' />
+            <div className='desertshelfTemp'>
+              <img src="/Kanelbulle.svg" alt="" />
+              <img src="/Kladdkaka.svg" alt="" />
+              <img src="/Muffin.svg" alt="" />
+              <img src="/Cookie.svg" alt="" />
+            </div>
+          </div>
+          <div className={`orderbox ${isAnimating2 ? 's5' : ''}`}/>
           <img src="../cafe.png" alt="" className={`cafeb2 ${isAnimating2 ? 's3' : ''}`} />
           <div className={`milk-machine ${isAnimating2 ? 's4' : ''}`}>
-          <div className='orderbox'/>
+          
             <div className='milk-buttons-box'>
               <Holdable_box className="milk-button" imgsrc= {"/Cow.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked} setIsAnimating2={setIsAnimating2}/>
               <Holdable_box className="milk-button" imgsrc= {"/Almond.svg"} stars = {stars} onStart={handleStartAnimation} onStop={handleStopAnimation} hasClicked={hasClicked} setHasClicked={setHasClicked} setIsAnimating2={setIsAnimating2}/>

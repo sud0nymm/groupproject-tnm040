@@ -25,6 +25,7 @@ function Play_coffee() {
             <img src="../public/cloud.png" alt="Cloud" className="cloud22" />
             <img src="../public/cloud.png" alt="Cloud" className="cloud33" />
             <ThreeBoxes/>
+            <div className='orderbox'/>
         </div>
 
     )
@@ -42,10 +43,11 @@ function ThreeBoxes(){ // star amountfrom link
 
     return (
         <div className='container'>
+            
             <img src="../cafe.png" alt="" className={`cafeb1 ${isAnimating ? 'slide1' : ''}`}/>
             <img src="../mmachine.png" alt="" className={`mm1 ${isAnimating ? 'slidem' : ''}`} />
           <div className={`coffee-machine ${isAnimating ? 'slide2' : ''}`}>  
-          <div className='orderbox'/>
+          
             <div className='coffeebox'>
                 <div className='coffeebox2'>
                     <img src="/Coffeebar.svg" />     
