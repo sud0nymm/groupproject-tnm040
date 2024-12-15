@@ -110,6 +110,7 @@ function Holdable_box({imgsrc, onStart, onStop, stars, hasClicked, setHasClicked
                 <img
                     src={imgsrc} 
                     alt = "Holdable Item"
+                    style={{ pointerEvents: 'none' }}
                 />
             </div>
 
