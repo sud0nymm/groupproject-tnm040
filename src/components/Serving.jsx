@@ -11,9 +11,11 @@ function Serving() {
   const [hasSnapped, setHasSnapped] = useState(false); 
 
   return (
-    <div className='servingbackground'>
+    <div>
+      <img src="../cafe.png" alt="" className='cafeb3' />
       {!hasSnapped && <div className='goalBox'></div>}      
       <div className='full'>
+        <img src="/mugg.png" alt="" className='mug'/>
         <div className='orderbox2' />
         <div className='desertshelf'>
           <DraggableBox imgsrc={"/Kanelbulle.svg"} stars = {stars.id} setHasSnapped={setHasSnapped}  hasSnapped={hasSnapped}> </DraggableBox>
@@ -40,32 +42,33 @@ function DraggableBox({imgsrc, stars, setHasSnapped, hasSnapped}) {
     e.preventDefault();
   };
 
-  const handleStop = (e, data) => { //handles stop of the draggable box
+  const handleStop = (e, data) => {
+    const goalElement = document.querySelector('.goalBox');
+    const goalRect = goalElement.getBoundingClientRect();
+    const draggableRect = e.target.getBoundingClientRect();
 
-    const margin = 50; // px margin
-    const goalx = xPos(imgsrc); // final position in x and y for box being dragged
-    const goaly= -152;
+    const isInHitbox =
+        draggableRect.left < goalRect.right - 30 &&
+        draggableRect.right > goalRect.left + 30 &&
+        draggableRect.top < goalRect.bottom - 30 &&
+        draggableRect.bottom > goalRect.top + 30;
+    
+    if (isInHitbox) {
+      if (imgsrc == "/Muffin.svg"){ 
+        staramount += 1;
+      }
+        setImgWidth(100);
+        console.log('Snap successful!');
+        setPosition(goalRect.left, goalRect.top);
+        setHasSnapped(true);
 
-    const snapPosition = {x:xPos(imgsrc), y:goaly}; // the position of x is dynamic because the box takes its own position which is relative
-
-    if (imgsrc == "/Muffin.svg"){ // imgsrc is the content that is being dragged
-      staramount += 1;
-    }
-
-    if(goalx + margin >= data.x && goalx - margin <= data.x && goaly + margin >= data.y && goaly - margin <= data.y){ //checks a range for x and y variables
-      setImgWidth(100);
-      setPosition(snapPosition); 
-      setHasSnapped(true);
-
-      setTimeout(() => { // timer that later redirects the page to the ratingpage, with dynamic url
-
-        navigate(`/ratingpage/${staramount}`); // sends page to ratingpage/"amount of stars"
-      }, 1500); 
+        setTimeout(() => {
+            navigate(`/ratingpage/${staramount}`);
+        }, 1500);
     } else {
-      setImgWidth(70);
+        console.log('Snap failed.');
     }
-
-  };
+};
 
   return (
 
