@@ -1,9 +1,7 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './componentStyles.css'
 import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
 
 function Play_milk() {
 

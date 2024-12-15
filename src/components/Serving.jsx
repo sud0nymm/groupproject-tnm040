@@ -1,6 +1,5 @@
 import { useState, useRef } from 'react'
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Draggable from 'react-draggable';
 import './componentStyles.css'
 import { useNavigate, useParams } from 'react-router-dom';
@@ -41,35 +40,37 @@ function DraggableBox({imgsrc, stars, setHasSnapped, hasSnapped}) {
   
   const handleDragStart = (e) => { //only for image to be draggable
     e.preventDefault();
+    setImgWidth(100);
   };
 
-  const handleStop = (e, data) => {
-    const goalElement = document.querySelector('.goalBox');
-    const goalRect = goalElement.getBoundingClientRect();
-    const draggableRect = e.target.getBoundingClientRect();
+  const handleStop = (e, data) => { //handles stop of the draggable box
 
-    const isInHitbox =
-        draggableRect.left < goalRect.right - 30 &&
-        draggableRect.right > goalRect.left + 30 &&
-        draggableRect.top < goalRect.bottom - 30 &&
-        draggableRect.bottom > goalRect.top + 30;
-    
-    if (isInHitbox) {
-      if (imgsrc == "/Muffin.svg"){ 
-        staramount += 1;
-      }
-        setImgWidth(100);
-        console.log('Snap successful!');
-        setPosition(goalRect.left, goalRect.top);
-        setHasSnapped(true);
+    const margin = 50; // px margin
+    const goaly = yPos(imgsrc); // final position in x and y for box being dragged
+    const goalx= 154;
 
-        setTimeout(() => {
-            navigate(`/ratingpage/${staramount}`);
-        }, 1500);
-    } else {
-        console.log('Snap failed.');
+    console.log(data.x, data.y);
+
+    const snapPosition = {x: goalx, y: yPos(imgsrc)}; // the position of x is dynamic because the box takes its own position which is relative
+
+    if (imgsrc == "/Muffin.svg"){ // imgsrc is the content that is being dragged
+      staramount += 1;
     }
-};
+
+    if(goalx + margin >= data.x && goalx - margin <= data.x && goaly + margin >= data.y && goaly - margin <= data.y){ //checks a range for x and y variables
+      setImgWidth(100);
+      setPosition(snapPosition); 
+      setHasSnapped(true);
+
+      setTimeout(() => { // timer that later redirects the page to the ratingpage, with dynamic url
+
+        navigate(`/ratingpage/${staramount}`); // sends page to ratingpage/"amount of stars"
+      }, 1500); 
+    } else {
+      setImgWidth(70);
+    }
+
+  };
 
   return (
 
@@ -96,13 +97,13 @@ function DraggableBox({imgsrc, stars, setHasSnapped, hasSnapped}) {
   )
 }
 
-function xPos(imgsrc){
+function yPos(imgsrc){
   
   switch (imgsrc){ // dynamically picking the goal area
-    case "/Kanelbulle.svg": return 137;
-    case "/Kladdkaka.svg": return 58;
-    case "/Muffin.svg": return -20;
-    case "/Cookie.svg": return -98;
+    case "/Kanelbulle.svg": return 250;
+    case "/Kladdkaka.svg": return 180;
+    case "/Muffin.svg": return 60;
+    case "/Cookie.svg": return 5;
   }
   
   return 0;

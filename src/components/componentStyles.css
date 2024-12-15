@@ -301,7 +301,7 @@
   width: 240px; /* Adjust size */
   height: 120px; /* Adjust size */
   background-size: cover;
-  z-index: 1000;
+  z-index: 20;
 }
 
 .orderbox2{

@@ -1,10 +1,7 @@
 import { useRef, useState } from 'react'
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './componentStyles.css'
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import Draggable from 'react-draggable';
 import './copies.css';
 
@@ -17,8 +14,6 @@ then a fixed wait after the end of animation, then reroute to serving  */
 
 function Play_coffee() {
     
-    //useparams must be here
-
     return (
         <div> 
             <img src="../public/cloud.png" alt="Cloud" className="cloud11" />
