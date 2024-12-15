@@ -20,7 +20,7 @@ function Play_milk() {
 function ThreeBoxes({stars}){
   const [isAnimating, setIsAnimating] = useState(false);
   const [hasClicked, setHasClicked] = useState(false);
-    const [isAnimating2, setIsAnimating2] = useState(false);
+  const [isAnimating2, setIsAnimating2] = useState(false);
 
   const handleStartAnimation = () => {
     setIsAnimating(true);
@@ -103,7 +103,7 @@ function Holdable_box({imgsrc, onStart, onStop, stars, hasClicked, setHasClicked
 
     return (
         <div className='milk-button-pour-box'
-          onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} 
+          onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onTouchStart={handleMouseDown} onTouchEnd={handleMouseUp} 
             style={{ pointerEvents: hasClicked ? 'none' : 'auto' }}> 
 
             <div className={`milk-button ${isHolding ? 'buttonPressAnim' : ''}`}>

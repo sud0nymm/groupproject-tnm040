@@ -1,18 +1,5 @@
-/*.testbox {
-    width: 200px;
-    height: 200px;
-    background-color: #61dafb;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    cursor: move;
-    text-align: center;
-  }
-    */
-
 .container {
+  position: relative;
   display: flex;
   justify-content: center; /* Horizontally center the boxes */
   align-items: flex-end; /* Vertically center the boxes */
@@ -32,13 +19,13 @@
   justify-content: center;
   margin-left: 4px;
   margin-right: 4px;
-  z-index: 4;
+  z-index: 0;
 }
 
 .pourAnimationContainer {
   position: absolute;
   margin-top: 163px;
-  z-index: 5;
+  z-index: 0;
 }
 .pourAnimationBox{
   position: absolute;
@@ -50,6 +37,7 @@
   height: 0px;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
+  z-index: 0;
 }
 .pourAnimation {
   height: 405px;
@@ -80,7 +68,7 @@
   height: 358px;
   width: 262px;
   clip-path: polygon(5% 0, 95% 0, 85% 96%, 15% 96%);
-  z-index: 4;
+  z-index: 99;
 }
 .fillAnimationBox {
   /* background: url("milkFillAnim.svg") repeat; */
